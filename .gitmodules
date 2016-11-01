@@ -1,0 +1,3 @@
+[submodule "hexi"]
+	path = hexi
+	url = https://github.com/kittykatattack/hexi/

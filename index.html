@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Indie+Flower" rel="stylesheet">
+    <style>
+        body {
+            overflow:hidden;
+        }
+        canvas {
+            position: absolute;
+        }
+        #__terminal__ {
+            font-size:12px;
+            height: 100vh;
+            z-index: 1;
+            pointer-events:none;
+        }
+        #__terminal__ * {
+            pointer-events:all;
+        }
+        #__flexcontainer__ {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <div id="__flexcontainer__">
+        <div id="__terminal__"></div>
+    </div>
+    <script src="hexi/bin/hexi.min.js"></script>
+    <script src="dist/bundle.js"></script>
+</body>

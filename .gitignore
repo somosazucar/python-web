@@ -1,0 +1,7 @@
+src/__javascript__/
+node_modules/
+assets/
+.envrc
+.direnv/
+*.pyc
+*.swp
