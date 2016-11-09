@@ -1,0 +1,36 @@
+# Compatibility Layer by Sebastian Silva
+#
+# This file fills missing functionality for parity with other compilers.
+#
+# _print was taken from Transcrypt
+# Copyright 2014, 2015, 2016 Jacques de Hooge, GEATEC engineering, www.geatec.com
+#
+
+import stdlib
+
+_print("Hello from RapydScript")
+
+JS("""
+    Vibrant = require ("node-vibrant")
+    require ("rapydscript")
+    """)
+
+def _new(cls, arg):
+    return new cls(arg)
+
+def _print(*args):
+    sep = " "
+    end = "\n"
+
+    def printAsync():
+        element = document.getElementById('__terminal__')
+        if element:
+            addition = sep.join([arg for arg in args]) + end
+            previous = element.innerHTML
+            element.innerHTML = previous + addition.replace('\n', '<br>')
+            element.scrollTop = element.scrollHeight
+        else:
+            console.log (sep.join([str (arg) for arg in args]))
+    setTimeout(printAsync, 5)
+
+#__pragma__ = lambda x: None

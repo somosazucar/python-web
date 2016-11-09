@@ -1,11 +1,13 @@
 {
   "name": "educa_juegos",
-  "version": "0.1.0",
-  "main": "src/start.js",
+  "version": "0.2.0",
+  "main": "./src/main.py",
   "author": "Sebastian Silva",
   "license": "AGPL-3.0",
   "scripts": {
-    "build": "browserify . -o dist/bundle.js -v -d"
+    "build": "browserify . -o dist/bundle.js",
+    "live": "budo src/main.py:dist/bundle.js --live",
+    "trans": "budo src/main.py:dist/bundle.js --live --onupdate 'cd src && transcrypt -n main.py'"
   },
   "browserify": {
     "extension": [
@@ -19,11 +21,10 @@
   },
   "dependencies": {
     "node-vibrant": "^2.1.2",
-    "rapydscript": "https://github.com/icarito/RapydScript",
-    "rapydscriptify": "^0.3.0"
+    "rapydscriptify": "^0.5.0"
   },
   "devDependencies": {
     "browserify": "^13.1.1",
-    "uglifyjs": "^2.4.10"
+    "budo": "^9.2.1"
   }
 }
