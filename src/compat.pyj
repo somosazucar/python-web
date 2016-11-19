@@ -1,19 +1,25 @@
-# Compatibility Layer by Sebastian Silva
 #
-# This file fills missing functionality for parity with other compilers.
+# Compatibility Layer by Sebastian Silva <sebastian@fuentelibre.org>
 #
-# _print was taken from Transcrypt
-# Copyright 2014, 2015, 2016 Jacques de Hooge, GEATEC engineering, www.geatec.com
+# This file is only run by RapydScript compiler!
+#
+# Add here missing functionality for parity with other compilers.
+#
+# _print was taken from Transcrypt:
+#   Copyright 2014, 2015, 2016 Jacques de Hooge, GEATEC engineering, www.geatec.com
+#   License: Apache 2.0
 #
 
 import stdlib
 
-_print("Hello from RapydScript")
+if not window.transpiler:
+    JS("""
+        Vibrant = require ("node-vibrant")
+        require ("rapydscript")
+        common = require ("./common.py")
+        """)
+    window.transpiler = "RapydScript"
 
-JS("""
-    Vibrant = require ("node-vibrant")
-    require ("rapydscript")
-    """)
 
 def _new(cls, arg):
     return new cls(arg)
@@ -33,4 +39,3 @@ def _print(*args):
             console.log (sep.join([str (arg) for arg in args]))
     setTimeout(printAsync, 5)
 
-#__pragma__ = lambda x: None

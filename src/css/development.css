@@ -1,0 +1,38 @@
+body {
+    overflow:hidden;
+}
+canvas {
+    position: absolute;
+}
+#__header__ { 
+    position:absolute;
+    top: 0; 
+    right: 0;
+    padding: 5px;
+}
+#__terminal__ {
+    font-family: 'Bitter'; 
+    font-size:12px;
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    pointer-events:none;
+    /* for parity with TransCrypt: */
+    overflow-x: auto; 
+    box-sizing: border-box; 
+    padding: 5px;
+}
+#__terminal__ * {
+    pointer-events:all;
+}
+#__flexcontainer__ {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}

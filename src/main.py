@@ -1,16 +1,10 @@
 import random
 
-from compat import _new
-
 from compat import _print as ՐՏ_print
 from compat import stdlib
+from compat import _new
 
-print("<h1>Educa.Juegos</h1>")
-print("<h2>Aprendemos jugando</h1>")
-width, height = 400, 100
-
-print("<a href='index_transcrypt.html'>transcrypt</a>")
-print("<a href='index.html'>rapydscript</a>")
+width, height = 800, 300
 
 #
 # Game objects
@@ -32,8 +26,6 @@ class Bola:
                                                colors.mute, colors.mute_light])
 
     def destroy(self):
-        # self.director.actors.pop(self)
-        # del(self)
         self.to_delete = True
         self.sprite.visible = False
         self.director.game.remove(self.sprite)
@@ -66,13 +58,14 @@ class Director:
         self.actors = []
 
     def setup(self):
-        self.recolor()
         self.game.state = self.play
         # self.game.pointer.tap = self.make_bola
-        if self.tick != False:
+        if self.tick is False:
             self.tick = window.setInterval(self.make_bola, 250)
 
     def recolor(self):
+        styles = document.styleSheets[document.styleSheets.length - 1]
+        styles.insertRule("#__terminal__ { color: " + colors.vibe_light + " }", 0)
         for actor in self.actors:
             actor.recolor()
         self.game.backgroundColor = colors.mute_dark
@@ -82,6 +75,9 @@ class Director:
         self.actors.append(Bola(self))
 
     def play(self):
+        if self.bgcolor != colors.vibe_dark:
+            self.bgcolor = colors.vibe_dark
+            self.recolor()
         for index in range(len(self.actors)):
             actor = self.actors[index]
             if actor.to_delete is False:
@@ -90,35 +86,25 @@ class Director:
                 self.actors.pop(index)
 
     def pause(self):
-        window.clearInterval(self.tick)
+        if self.tick:
+            window.clearInterval(self.tick)
+            self.tick = False
         self.game.pause()
 
     def resume(self):
-        self.tick = window.setInterval(self.make_bola, 250)
+        if not self.tick:
+            self.tick = window.setInterval(self.make_bola, 250)
         self.game.resume()
 
     def rescale(self):
-        self.game.scaleToWindow(colors.mute)
+        self.game.scaleToWindow(self.bgcolor)
 
-
-def setup_styles():
-    styles = document.styleSheets[document.styleSheets.length - 1]
-    styles.insertRule("h1, h2 { color: " + colors.vibe_light + " }", 0)
-    styles.insertRule("h1, h2 { text-align: center; }", 0)
-    styles.insertRule("h1, h2 { font-family: 'Indie Flower'; }", 0)
-    styles.insertRule("#__terminal__ { color: " + colors.vibe_light + " }", 0)
-    styles.insertRule("#__terminal__ { font-family: 'Bitter'; }", 0)
-    styles.insertRule("#__prompt__ { font-family: 'Bitter'; position:absolute; bottom: 0; right: 0}", 0)
-
-    if window.educajuego:
-        window.educajuego.recolor()
 
 #
 # Interface to Vibrant.js
 #
 class Palette:
-    def __init__(self, asset, callback):
-        self.callback = callback
+    def __init__(self, asset):
         v = _new(Vibrant, asset)
         if v:
             v.getPalette(self.parse)
@@ -140,16 +126,11 @@ class Palette:
             self.mute_light = palette.LightMuted.getHex()
             self.mute_dark = palette.DarkMuted.getHex()
 
-            if self.callback:
-                self.callback()
-
 
 # Entry point
 def main():
     if window.educajuego:
         return
-
-    setup_styles()
 
     educajuego = Director()
     educajuego.game.start()
@@ -161,6 +142,5 @@ def main():
     window.educajuego = educajuego
 
 
-colors = Palette('assets/hud.png', setup_styles)
-
+colors = Palette('docs/images/monk_transcribing_large.png')
 main()

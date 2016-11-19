@@ -1,0 +1,16 @@
+#!/bin/bash
+ICON=$(pwd)'/docs/images/uroboros_head.png'
+cd ./src
+if which transcrypt
+then
+    if which notify-send
+    then
+        transcrypt -n main.py 2>&1 | xargs -0 notify-send -i $ICON
+    else
+        transcrypt -n main.py
+    fi
+else
+    echo You need to install transcrypt.
+    echo     
+    echo     http://sterlicht.alwaysdata.net/transcrypt.org/docs/html/installation_use.html
+fi

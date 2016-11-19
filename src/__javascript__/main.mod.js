@@ -1,16 +1,12 @@
 	(function () {
 		var random = {};
 		__nest__ (random, '', __init__ (__world__.random));
-		var _new = __init__ (__world__.compat)._new;
 		var ՐՏ_print = __init__ (__world__.compat)._print;
 		var stdlib = __init__ (__world__.compat).stdlib;
-		print ('<h1>Educa.Juegos</h1>');
-		print ('<h2>Aprendemos jugando</h1>');
-		var __left0__ = tuple ([400, 100]);
+		var _new = __init__ (__world__.compat)._new;
+		var __left0__ = tuple ([800, 300]);
 		var width = __left0__ [0];
 		var height = __left0__ [1];
-		print ("<a href='index_transcrypt.html'>transcrypt</a>");
-		print ("<a href='index.html'>rapydscript</a>");
 		var Bola = __class__ ('Bola', [object], {
 			get __init__ () {return __get__ (this, function (self, director) {
 				self.director = director;
@@ -59,13 +55,14 @@
 				self.actors = list ([]);
 			});},
 			get setup () {return __get__ (this, function (self) {
-				self.recolor ();
 				self.game.state = self.play;
-				if (self.tick != false) {
+				if (self.tick === false) {
 					self.tick = window.setInterval (self.make_bola, 250);
 				}
 			});},
 			get recolor () {return __get__ (this, function (self) {
+				var styles = document.styleSheets [document.styleSheets.length - 1];
+				styles.insertRule (('#__terminal__ { color: ' + colors.vibe_light) + ' }', 0);
 				var __iterable0__ = self.actors;
 				for (var __index0__ = 0; __index0__ < __iterable0__.length; __index0__++) {
 					var actor = __iterable0__ [__index0__];
@@ -78,6 +75,10 @@
 				self.actors.append (Bola (self));
 			});},
 			get play () {return __get__ (this, function (self) {
+				if (self.bgcolor != colors.vibe_dark) {
+					self.bgcolor = colors.vibe_dark;
+					self.recolor ();
+				}
 				for (var index = 0; index < len (self.actors); index++) {
 					var actor = self.actors [index];
 					if (actor.to_delete === false) {
@@ -91,32 +92,24 @@
 				}
 			});},
 			get pause () {return __get__ (this, function (self) {
-				window.clearInterval (self.tick);
+				if (self.tick) {
+					window.clearInterval (self.tick);
+					self.tick = false;
+				}
 				self.game.pause ();
 			});},
 			get resume () {return __get__ (this, function (self) {
-				self.tick = window.setInterval (self.make_bola, 250);
+				if (!(self.tick)) {
+					self.tick = window.setInterval (self.make_bola, 250);
+				}
 				self.game.resume ();
 			});},
 			get rescale () {return __get__ (this, function (self) {
-				self.game.scaleToWindow (colors.mute);
+				self.game.scaleToWindow (self.bgcolor);
 			});}
 		});
-		var setup_styles = function () {
-			var styles = document.styleSheets [document.styleSheets.length - 1];
-			styles.insertRule (('h1, h2 { color: ' + colors.vibe_light) + ' }', 0);
-			styles.insertRule ('h1, h2 { text-align: center; }', 0);
-			styles.insertRule ("h1, h2 { font-family: 'Indie Flower'; }", 0);
-			styles.insertRule (('#__terminal__ { color: ' + colors.vibe_light) + ' }', 0);
-			styles.insertRule ("#__terminal__ { font-family: 'Bitter'; }", 0);
-			styles.insertRule ("#__prompt__ { font-family: 'Bitter'; position:absolute; bottom: 0; right: 0}", 0);
-			if (window.educajuego) {
-				window.educajuego.recolor ();
-			}
-		};
 		var Palette = __class__ ('Palette', [object], {
-			get __init__ () {return __get__ (this, function (self, asset, callback) {
-				self.callback = callback;
+			get __init__ () {return __get__ (this, function (self, asset) {
 				var v = _new (Vibrant, asset);
 				if (v) {
 					v.getPalette (self.parse);
@@ -140,9 +133,6 @@
 					self.mute = palette.Muted.getHex ();
 					self.mute_light = palette.LightMuted.getHex ();
 					self.mute_dark = palette.DarkMuted.getHex ();
-					if (self.callback) {
-						self.callback ();
-					}
 				}
 			});}
 		});
@@ -150,7 +140,6 @@
 			if (window.educajuego) {
 				return ;
 			}
-			setup_styles ();
 			var educajuego = Director ();
 			educajuego.game.start ();
 			window.onblur = educajuego.pause;
@@ -158,7 +147,7 @@
 			window.onresize = educajuego.rescale;
 			window.educajuego = educajuego;
 		};
-		var colors = Palette ('assets/hud.png', setup_styles);
+		var colors = Palette ('docs/images/monk_transcribing_large.png');
 		main ();
 		__pragma__ ('<use>' +
 			'compat' +
@@ -172,7 +161,6 @@
 			__all__.colors = colors;
 			__all__.height = height;
 			__all__.main = main;
-			__all__.setup_styles = setup_styles;
 			__all__.stdlib = stdlib;
 			__all__.width = width;
 			__all__.ՐՏ_print = ՐՏ_print;
