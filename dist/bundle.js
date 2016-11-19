@@ -2919,11 +2919,11 @@ function abs(n) {
     return Math.abs(n);
 }
 function all(a) {
-    var ՐՏitr85, ՐՏidx85;
+    var ՐՏitr86, ՐՏidx86;
     var e;
-    ՐՏitr85 = ՐՏ_Iterable(a);
-    for (ՐՏidx85 = 0; ՐՏidx85 < ՐՏitr85.length; ՐՏidx85++) {
-        e = ՐՏitr85[ՐՏidx85];
+    ՐՏitr86 = ՐՏ_Iterable(a);
+    for (ՐՏidx86 = 0; ՐՏidx86 < ՐՏitr86.length; ՐՏidx86++) {
+        e = ՐՏitr86[ՐՏidx86];
         if (!e) {
             return false;
         }
@@ -2931,11 +2931,11 @@ function all(a) {
     return true;
 }
 function any(a) {
-    var ՐՏitr86, ՐՏidx86;
+    var ՐՏitr87, ՐՏidx87;
     var e;
-    ՐՏitr86 = ՐՏ_Iterable(a);
-    for (ՐՏidx86 = 0; ՐՏidx86 < ՐՏitr86.length; ՐՏidx86++) {
-        e = ՐՏitr86[ՐՏidx86];
+    ՐՏitr87 = ՐՏ_Iterable(a);
+    for (ՐՏidx87 = 0; ՐՏidx87 < ՐՏitr87.length; ՐՏidx87++) {
+        e = ՐՏitr87[ՐՏidx87];
         if (e) {
             return true;
         }
@@ -2946,7 +2946,7 @@ function bin(a) {
     return "0b" + (a >>> 0).toString(2);
 }
 function ՐՏ_bind(fn, thisArg) {
-    var fn, ret;
+    var ret;
     if (fn.orig) {
         fn = fn.orig;
     }
@@ -2960,7 +2960,6 @@ function ՐՏ_bind(fn, thisArg) {
     return ret;
 }
 function ՐՏ_rebindAll(thisArg, rebind) {
-    var rebind;
     if (rebind === void 0) {
         rebind = true;
     }
@@ -2996,7 +2995,7 @@ function enumerate(item) {
     return arr;
 }
 function ՐՏ_eslice(arr, step, start, end) {
-    var arr, isString, step, start, end;
+    var isString;
     arr = arr.slice(0);
     if (typeof arr === "string" || arr instanceof String) {
         isString = true;
@@ -3064,16 +3063,16 @@ function min(a) {
     return Math.min.apply(null, Array.isArray(a) ? a : arguments);
 }
 function ՐՏ_merge(target, source, overwrite) {
-    var ՐՏitr87, ՐՏidx87;
+    var ՐՏitr88, ՐՏidx88;
     var prop;
     for (var i in source) {
         if (source.hasOwnProperty(i) && (overwrite || typeof target[i] === "undefined")) {
             target[i] = source[i];
         }
     }
-    ՐՏitr87 = ՐՏ_Iterable(Object.getOwnPropertyNames(source.prototype));
-    for (ՐՏidx87 = 0; ՐՏidx87 < ՐՏitr87.length; ՐՏidx87++) {
-        prop = ՐՏitr87[ՐՏidx87];
+    ՐՏitr88 = ՐՏ_Iterable(Object.getOwnPropertyNames(source.prototype));
+    for (ՐՏidx88 = 0; ՐՏidx88 < ՐՏitr88.length; ՐՏidx88++) {
+        prop = ՐՏitr88[ՐՏidx88];
         if (overwrite || typeof target.prototype[prop] === "undefined") {
             target.prototype[prop] = source.prototype[prop];
         }
@@ -3082,14 +3081,14 @@ function ՐՏ_merge(target, source, overwrite) {
 function ՐՏ_mixin() {
     var classes = [].slice.call(arguments, 0);
     return function(baseClass) {
-        var ՐՏitr88, ՐՏidx88, ՐՏitr89, ՐՏidx89;
+        var ՐՏitr89, ՐՏidx89, ՐՏitr90, ՐՏidx90;
         var cls, key;
-        ՐՏitr88 = ՐՏ_Iterable(classes);
-        for (ՐՏidx88 = 0; ՐՏidx88 < ՐՏitr88.length; ՐՏidx88++) {
-            cls = ՐՏitr88[ՐՏidx88];
-            ՐՏitr89 = ՐՏ_Iterable(Object.getOwnPropertyNames(cls.prototype));
-            for (ՐՏidx89 = 0; ՐՏidx89 < ՐՏitr89.length; ՐՏidx89++) {
-                key = ՐՏitr89[ՐՏidx89];
+        ՐՏitr89 = ՐՏ_Iterable(classes);
+        for (ՐՏidx89 = 0; ՐՏidx89 < ՐՏitr89.length; ՐՏidx89++) {
+            cls = ՐՏitr89[ՐՏidx89];
+            ՐՏitr90 = ՐՏ_Iterable(Object.getOwnPropertyNames(cls.prototype));
+            for (ՐՏidx90 = 0; ՐՏidx90 < ՐՏitr90.length; ՐՏidx90++) {
+                key = ՐՏitr90[ՐՏidx90];
                 if (!(ՐՏ_in(key, baseClass.prototype))) {
                     baseClass.prototype[key] = cls.prototype[key];
                 }
@@ -3104,7 +3103,7 @@ function ՐՏ_print() {
     }
 }
 function range(start, stop, step) {
-    var stop, start, step, length, idx, range;
+    var length, idx, range;
     if (arguments.length <= 1) {
         stop = start || 0;
         start = 0;
@@ -3144,9 +3143,9 @@ function ՐՏ_type(obj) {
 function zip(a, b) {
     var i;
     return (function() {
-        var ՐՏidx90, ՐՏitr90 = ՐՏ_Iterable(range(Math.min(a.length, b.length))), ՐՏres = [], i;
-        for (ՐՏidx90 = 0; ՐՏidx90 < ՐՏitr90.length; ՐՏidx90++) {
-            i = ՐՏitr90[ՐՏidx90];
+        var ՐՏidx91, ՐՏitr91 = ՐՏ_Iterable(range(Math.min(a.length, b.length))), ՐՏres = [], i;
+        for (ՐՏidx91 = 0; ՐՏidx91 < ՐՏitr91.length; ՐՏidx91++) {
+            i = ՐՏitr91[ՐՏidx91];
             ՐՏres.push([ a[i], b[i] ]);
         }
         return ՐՏres;
@@ -3162,7 +3161,7 @@ function hasattr(obj, name) {
     return name in obj;
 }
 function ՐՏ_eq(a, b) {
-    var ՐՏitr91, ՐՏidx91;
+    var ՐՏitr92, ՐՏidx92;
     var i;
     if (a === b) {
         return true;
@@ -3181,9 +3180,9 @@ function ՐՏ_eq(a, b) {
             if (Object.keys(a).length !== Object.keys(b).length) {
                 return false;
             }
-            ՐՏitr91 = ՐՏ_Iterable(a);
-            for (ՐՏidx91 = 0; ՐՏidx91 < ՐՏitr91.length; ՐՏidx91++) {
-                i = ՐՏitr91[ՐՏidx91];
+            ՐՏitr92 = ՐՏ_Iterable(a);
+            for (ՐՏidx92 = 0; ՐՏidx92 < ՐՏitr92.length; ՐՏidx92++) {
+                i = ՐՏitr92[ՐՏidx92];
                 if (!ՐՏ_eq(a[i], b[i])) {
                     return false;
                 }
@@ -3387,7 +3386,7 @@ var ՐՏ_modules = {};
     }), ՐՏ_2);
     function defaults(args, defs, croak) {
         var ՐՏitr2, ՐՏidx2, ՐՏitr3, ՐՏidx3;
-        var args, ret, key;
+        var ret, key;
         if (args === true) {
             args = {};
         }
@@ -3574,7 +3573,7 @@ var ՐՏ_modules = {};
         });
     }
     function makePredicate(words) {
-        var words, f, cats, i, skip, j, cat;
+        var f, cats, i, skip, j, cat;
         if (!Array.isArray(words)) {
             words = words.split(" ");
         }
@@ -3673,7 +3672,6 @@ var ՐՏ_modules = {};
     };
     colors = [ "red", "green", "yellow", "blue", "magenta", "cyan", "white" ];
     function ansi(code) {
-        var code;
         code = code || 0;
         return "[" + code + "m";
     }
@@ -5967,7 +5965,7 @@ var ՐՏ_modules = {};
             writable: true, 
             value: function in_boolean_context(){
                 var self = this;
-                var stack, i, self, p;
+                var stack, i, p;
                 stack = self.stack;
                 i = stack.length;
                 self = stack[--i];
@@ -6417,7 +6415,7 @@ var ՐՏ_modules = {};
             S.tokpos = S.pos;
         }
         function token(full_type, value, is_comment, keep_newline) {
-            var full_type, type, subtype, value, ret, i;
+            var type, subtype, ret, i;
             full_type = full_type.split(":");
             type = full_type[0];
             subtype = full_type[1];
@@ -6566,7 +6564,7 @@ var ՐՏ_modules = {};
             }
         }
         function read_escaped_char(in_string, digester) {
-            var digester, ch, tmp_;
+            var ch, tmp_;
             digester = digester || function(in_str) {
                 return next(true, in_str);
             };
@@ -6743,7 +6741,7 @@ var ՐՏ_modules = {};
         }
         
         var read_regexp = (ՐՏ_117 = function read_regexp(regexp) {
-            var prev_backslash, in_class, verbose_regexp, in_comment, mods, ch, regexp;
+            var prev_backslash, in_class, verbose_regexp, in_comment, mods, ch;
             prev_backslash = false;
             in_class = false;
             verbose_regexp = false;
@@ -7093,7 +7091,7 @@ var ՐՏ_modules = {};
     ATOMIC_START_TOKEN = array_to_hash([ "atom", "num", "string", "regexp", "name" ]);
     function parse($TEXT, options) {
         var ՐՏitr38, ՐՏidx38, ՐՏ_118, ՐՏ_119, ՐՏ_120;
-        var options, module_id, import_dirs, IMPORTED, IMPORTING, S, cname, obj;
+        var module_id, import_dirs, IMPORTED, IMPORTING, S, cname, obj;
         options = defaults(options, {
             strict: false,
             filename: null,
@@ -7180,7 +7178,6 @@ var ՐՏ_modules = {};
             croak(msg, token.line, token.col, void 0, is_eof);
         }
         function unexpected(token) {
-            var token;
             if (token === void 0) {
                 token = S.token;
             }
@@ -7483,7 +7480,6 @@ var ՐՏ_modules = {};
             });
         }
         function simple_statement(tmp) {
-            var tmp;
             tmp = expression(true);
             semicolon();
             return new ast.SimpleStatement({
@@ -7586,7 +7582,7 @@ var ՐՏ_modules = {};
         }
         function get_class_in_scope(expr) {
             var ՐՏitr41, ՐՏidx41, ՐՏitr42, ՐՏidx42;
-            var s, referenced_path, expr, class_name;
+            var s, referenced_path, class_name;
             if (expr instanceof ast.SymbolRef) {
                 if (ՐՏ_in(expr.name, NATIVE_CLASSES)) {
                     return NATIVE_CLASSES[expr.name];
@@ -7917,7 +7913,7 @@ var ՐՏ_modules = {};
             return definition;
         }
         function function_(in_class, ctor) {
-            var start, is_accessor, name, generator, localvars, staticmethod, function_args, return_annotation, has_special_decorator, ctor, docstring, callsSuper, definition;
+            var start, is_accessor, name, generator, localvars, staticmethod, function_args, return_annotation, has_special_decorator, docstring, callsSuper, definition, arg, args;
             start = prev();
             is_accessor = ctor === ast.ObjectGetter || ctor === ast.ObjectSetter;
             name = is_("name") ? as_symbol(in_class ? ast.SymbolDefun : is_accessor ? ast.SymbolAccessor : ast.SymbolLambda) : is_accessor && (is_("string") || is_("num")) ? as_atom_node() : null;
@@ -8132,6 +8128,17 @@ var ՐՏ_modules = {};
             if (name) {
                 S.in_scope[S.in_scope.length-1].functions[name.name] = definition.resolveType(S.in_scope);
             }
+            args = (function() {
+                var ՐՏidx52, ՐՏitr52 = ՐՏ_Iterable(definition.argnames), ՐՏres = [], arg;
+                for (ՐՏidx52 = 0; ՐՏidx52 < ՐՏitr52.length; ՐՏidx52++) {
+                    arg = ՐՏitr52[ՐՏidx52];
+                    ՐՏres.push(arg.name);
+                }
+                return ՐՏres;
+            })();
+            definition.localvars = definition.localvars.filter(function(var_) {
+                return !(ՐՏ_in(var_.name, args));
+            });
             if (in_class && !staticmethod) {
                 if (ctor === ast.Constructor) {
                     definition.parent = S.in_scope[S.in_scope.length-1].parent;
@@ -8192,13 +8199,13 @@ var ՐՏ_modules = {};
             return false;
         }
         function format_docstring(string) {
-            var ՐՏitr52, ՐՏidx52, ՐՏitr53, ՐՏidx53;
+            var ՐՏitr53, ՐՏidx53, ՐՏitr54, ՐՏidx54;
             var lines, indent, line, pad, trimmed;
             lines = string.split(/\n/g);
             indent = 1e6;
-            ՐՏitr52 = ՐՏ_Iterable(lines.slice(1));
-            for (ՐՏidx52 = 0; ՐՏidx52 < ՐՏitr52.length; ՐՏidx52++) {
-                line = ՐՏitr52[ՐՏidx52];
+            ՐՏitr53 = ՐՏ_Iterable(lines.slice(1));
+            for (ՐՏidx53 = 0; ՐՏidx53 < ՐՏitr53.length; ՐՏidx53++) {
+                line = ՐՏitr53[ՐՏidx53];
                 if (line.trim().length) {
                     pad = line.match(/^\s*/)[0];
                     indent = Math.min(indent, pad.length);
@@ -8206,9 +8213,9 @@ var ՐՏ_modules = {};
             }
             trimmed = [ lines[0].trim() ];
             if (indent < 1e6) {
-                ՐՏitr53 = ՐՏ_Iterable(lines.slice(1));
-                for (ՐՏidx53 = 0; ՐՏidx53 < ՐՏitr53.length; ՐՏidx53++) {
-                    line = ՐՏitr53[ՐՏidx53];
+                ՐՏitr54 = ՐՏ_Iterable(lines.slice(1));
+                for (ՐՏidx54 = 0; ՐՏidx54 < ՐՏitr54.length; ՐՏidx54++) {
+                    line = ՐՏitr54[ՐՏidx54];
                     trimmed.push(line.slice(indent).replace(/\s+$/));
                 }
             }
@@ -8414,7 +8421,7 @@ var ՐՏ_modules = {};
             }), true);
         }
         function as_atom_node(token) {
-            var tok, tmp_, token, ret, tmp__;
+            var tok, tmp_, ret, tmp__;
             tok = token || S.token;
             tmp_ = tok.type;
             if (tmp_ === "name") {
@@ -8516,7 +8523,7 @@ var ՐՏ_modules = {};
             unexpected();
         }
         function expr_list(closing, allow_trailing_comma, allow_empty, func_call) {
-            var ՐՏitr54, ՐՏidx54, ՐՏupk4;
+            var ՐՏitr55, ՐՏidx55, ՐՏupk4;
             var first, a, saw_starargs, tmp, i, arg;
             first = true;
             a = [];
@@ -8549,9 +8556,9 @@ var ՐՏ_modules = {};
             if (func_call) {
                 tmp = [];
                 tmp.kwargs = [];
-                ՐՏitr54 = ՐՏ_Iterable(enumerate(a));
-                for (ՐՏidx54 = 0; ՐՏidx54 < ՐՏitr54.length; ՐՏidx54++) {
-                    ՐՏupk4 = ՐՏitr54[ՐՏidx54];
+                ՐՏitr55 = ՐՏ_Iterable(enumerate(a));
+                for (ՐՏidx55 = 0; ՐՏidx55 < ՐՏitr55.length; ՐՏidx55++) {
+                    ՐՏupk4 = ՐՏitr55[ՐՏidx55];
                     i = ՐՏupk4[0];
                     arg = ՐՏupk4[1];
                     if (arg instanceof ast.Assign) {
@@ -8914,9 +8921,9 @@ var ՐՏ_modules = {};
                         }), allow_calls);
                     } else {
                         slice_bounds = (function() {
-                            var ՐՏidx55, ՐՏitr55 = ՐՏ_Iterable(slice_bounds), ՐՏres = [], i;
-                            for (ՐՏidx55 = 0; ՐՏidx55 < ՐՏitr55.length; ՐՏidx55++) {
-                                i = ՐՏitr55[ՐՏidx55];
+                            var ՐՏidx56, ՐՏitr56 = ՐՏ_Iterable(slice_bounds), ՐՏres = [], i;
+                            for (ՐՏidx56 = 0; ՐՏidx56 < ՐՏitr56.length; ՐՏidx56++) {
+                                i = ՐՏitr56[ՐՏidx56];
                                 ՐՏres.push(i === null ? new ast.Number({
                                     value: 0
                                 }) : i);
@@ -9144,26 +9151,26 @@ var ՐՏ_modules = {};
             return astElement;
         }
         function validateCallArgs(astElement) {
-            var ՐՏitr56, ՐՏidx56, ՐՏitr57, ՐՏidx57, ՐՏitr58, ՐՏidx58, ՐՏitr59, ՐՏidx59, ՐՏupk5;
+            var ՐՏitr57, ՐՏidx57, ՐՏitr58, ՐՏidx58, ՐՏitr59, ՐՏidx59, ՐՏitr60, ՐՏidx60, ՐՏupk5;
             var name, found, scope, func, signature, variable, args, i, arg, expected, actual;
             if (astElement.expression instanceof ast.SymbolRef) {
                 name = astElement.expression.name;
                 found = false;
-                ՐՏitr56 = ՐՏ_Iterable(reversed(S.in_scope));
-                for (ՐՏidx56 = 0; ՐՏidx56 < ՐՏitr56.length; ՐՏidx56++) {
-                    scope = ՐՏitr56[ՐՏidx56];
-                    ՐՏitr57 = ՐՏ_Iterable(scope.functions);
-                    for (ՐՏidx57 = 0; ՐՏidx57 < ՐՏitr57.length; ՐՏidx57++) {
-                        func = ՐՏitr57[ՐՏidx57];
+                ՐՏitr57 = ՐՏ_Iterable(reversed(S.in_scope));
+                for (ՐՏidx57 = 0; ՐՏidx57 < ՐՏitr57.length; ՐՏidx57++) {
+                    scope = ՐՏitr57[ՐՏidx57];
+                    ՐՏitr58 = ՐՏ_Iterable(scope.functions);
+                    for (ՐՏidx58 = 0; ՐՏidx58 < ՐՏitr58.length; ՐՏidx58++) {
+                        func = ՐՏitr58[ՐՏidx58];
                         if (func === name) {
                             signature = scope.functions[func];
                             found = true;
                             break;
                         }
                     }
-                    ՐՏitr58 = ՐՏ_Iterable(scope.vars);
-                    for (ՐՏidx58 = 0; ՐՏidx58 < ՐՏitr58.length; ՐՏidx58++) {
-                        variable = ՐՏitr58[ՐՏidx58];
+                    ՐՏitr59 = ՐՏ_Iterable(scope.vars);
+                    for (ՐՏidx59 = 0; ՐՏidx59 < ՐՏitr59.length; ՐՏidx59++) {
+                        variable = ՐՏitr59[ՐՏidx59];
                         if (variable === name) {
                             signature = scope.vars[func];
                             found = true;
@@ -9182,9 +9189,9 @@ var ՐՏ_modules = {};
                     if (args.length < astElement.args.length) {
                         croak("Function '" + name + "' takes " + args.length + " arguments, yet your call contains " + astElement.args.length + "");
                     }
-                    ՐՏitr59 = ՐՏ_Iterable(enumerate(astElement.args));
-                    for (ՐՏidx59 = 0; ՐՏidx59 < ՐՏitr59.length; ՐՏidx59++) {
-                        ՐՏupk5 = ՐՏitr59[ՐՏidx59];
+                    ՐՏitr60 = ՐՏ_Iterable(enumerate(astElement.args));
+                    for (ՐՏidx60 = 0; ՐՏidx60 < ՐՏitr60.length; ՐՏidx60++) {
+                        ՐՏupk5 = ՐՏitr60[ՐՏidx60];
                         i = ՐՏupk5[0];
                         arg = ՐՏupk5[1];
                         expected = args[i].trim();
@@ -9270,15 +9277,15 @@ var ՐՏ_modules = {};
             return expr;
         }
         function isAssignable(expr) {
-            var ՐՏitr60, ՐՏidx60;
+            var ՐՏitr61, ՐՏidx61;
             var element;
             if (expr instanceof ast.SymbolRef || expr instanceof ast.PropAccess) {
                 return true;
             }
             if (expr instanceof ast.Array) {
-                ՐՏitr60 = ՐՏ_Iterable(expr.elements);
-                for (ՐՏidx60 = 0; ՐՏidx60 < ՐՏitr60.length; ՐՏidx60++) {
-                    element = ՐՏitr60[ՐՏidx60];
+                ՐՏitr61 = ՐՏ_Iterable(expr.elements);
+                for (ՐՏidx61 = 0; ՐՏidx61 < ՐՏitr61.length; ՐՏidx61++) {
+                    element = ՐՏitr61[ՐՏidx61];
                     if (!isAssignable(element)) {
                         return false;
                     }
@@ -9320,7 +9327,7 @@ var ՐՏ_modules = {};
             return left;
         }
         function expression(commas, no_in) {
-            var ՐՏitr61, ՐՏidx61, ՐՏupk6, ՐՏitr62, ՐՏidx62, ՐՏupk7;
+            var ՐՏitr62, ՐՏidx62, ՐՏupk6, ՐՏitr63, ՐՏidx63, ՐՏupk7;
             var start, expr, left, leftAst, right, index, element, seq;
             start = S.token;
             expr = maybe_assign(no_in);
@@ -9346,9 +9353,9 @@ var ՐՏ_modules = {};
                             car: expr.right,
                             cdr: expression(true, no_in)
                         }));
-                        ՐՏitr61 = ՐՏ_Iterable(enumerate(leftAst.elements));
-                        for (ՐՏidx61 = 0; ՐՏidx61 < ՐՏitr61.length; ՐՏidx61++) {
-                            ՐՏupk6 = ՐՏitr61[ՐՏidx61];
+                        ՐՏitr62 = ՐՏ_Iterable(enumerate(leftAst.elements));
+                        for (ՐՏidx62 = 0; ՐՏidx62 < ՐՏitr62.length; ՐՏidx62++) {
+                            ՐՏupk6 = ՐՏitr62[ՐՏidx62];
                             index = ՐՏupk6[0];
                             element = ՐՏupk6[1];
                             mark_local_assignment(element, right.elements[index]);
@@ -9370,9 +9377,9 @@ var ՐՏ_modules = {};
                 }
                 if (left.length > 1 && left[left.length-1] instanceof ast.Assign) {
                     left[left.length-1] = left[left.length-1].left;
-                    ՐՏitr62 = ՐՏ_Iterable(enumerate(left));
-                    for (ՐՏidx62 = 0; ՐՏidx62 < ՐՏitr62.length; ՐՏidx62++) {
-                        ՐՏupk7 = ՐՏitr62[ՐՏidx62];
+                    ՐՏitr63 = ՐՏ_Iterable(enumerate(left));
+                    for (ՐՏidx63 = 0; ՐՏidx63 < ՐՏitr63.length; ՐՏidx63++) {
+                        ՐՏupk7 = ՐՏitr63[ՐՏidx63];
                         index = ՐՏupk7[0];
                         element = ՐՏupk7[1];
                         mark_local_assignment(element, expr.right instanceof ast.Array ? expr.right.elements[index] : null);
@@ -9388,14 +9395,14 @@ var ՐՏ_modules = {};
                     });
                 }
                 seq = function build_seq(a) {
-                    var ՐՏitr63, ՐՏidx63, ՐՏupk8;
+                    var ՐՏitr64, ՐՏidx64, ՐՏupk8;
                     var first, index, element;
                     first = a.shift();
                     if (first instanceof ast.Assign) {
                         if (first.left instanceof ast.Array) {
-                            ՐՏitr63 = ՐՏ_Iterable(enumerate(first.left.elements));
-                            for (ՐՏidx63 = 0; ՐՏidx63 < ՐՏitr63.length; ՐՏidx63++) {
-                                ՐՏupk8 = ՐՏitr63[ՐՏidx63];
+                            ՐՏitr64 = ՐՏ_Iterable(enumerate(first.left.elements));
+                            for (ՐՏidx64 = 0; ՐՏidx64 < ՐՏitr64.length; ՐՏidx64++) {
+                                ՐՏupk8 = ՐՏitr64[ՐՏidx64];
                                 index = ՐՏupk8[0];
                                 element = ՐՏupk8[1];
                                 mark_local_assignment(element, first.right instanceof ast.Array ? first.right.elements[index] : null);
@@ -9424,7 +9431,7 @@ var ՐՏ_modules = {};
             return ret;
         }
         return function() {
-            var ՐՏitr64, ՐՏidx64;
+            var ՐՏitr65, ՐՏidx65;
             var start, body, docstring, first_token, element, shebang, end, toplevel, assignments, callables, item;
             start = S.token;
             body = [];
@@ -9465,9 +9472,9 @@ var ՐՏ_modules = {};
             assignments = Object.keys(S.in_scope[S.in_scope.length-1].vars);
             callables = scan_for_top_level_callables(toplevel.body).filter(uniq);
             toplevel.localvars = [];
-            ՐՏitr64 = ՐՏ_Iterable(assignments);
-            for (ՐՏidx64 = 0; ՐՏidx64 < ՐՏitr64.length; ՐՏidx64++) {
-                item = ՐՏitr64[ՐՏidx64];
+            ՐՏitr65 = ՐՏ_Iterable(assignments);
+            for (ՐՏidx65 = 0; ՐՏidx65 < ՐՏitr65.length; ՐՏidx65++) {
+                item = ՐՏitr65[ՐՏidx65];
                 if (!(ՐՏ_in(item, toplevel.nonlocalvars))) {
                     toplevel.localvars.push(new_symbol(ast.SymbolVar, item));
                 }
@@ -9536,7 +9543,7 @@ var ՐՏ_modules = {};
     var parser = ՐՏ_modules["parser"];
     
     function Stream(options) {
-        var options, indentation, current_col, current_line, current_pos, BUFFERS, IMPORTED, might_need_space, might_need_semicolon, last, requireSemicolonChars, space, indent, with_indent, newline, semicolon, add_mapping, tmpIndex, stack, baselibCache;
+        var indentation, current_col, current_line, current_pos, BUFFERS, IMPORTED, might_need_space, might_need_semicolon, last, requireSemicolonChars, space, indent, with_indent, newline, semicolon, add_mapping, tmpIndex, stack, baselibCache;
         options = defaults(options, {
             indent_start: 0,
             indent_level: 4,
@@ -9587,7 +9594,7 @@ var ՐՏ_modules = {};
             });
         }
         function make_string(str_, quotes) {
-            var dq, sq, str_;
+            var dq, sq;
             dq = 0;
             sq = 0;
             str_ = str_.replace(/[\\\b\f\n\r\t\x22\x27\u2028\u2029\0]/g, function(s) {
@@ -9642,7 +9649,6 @@ var ՐՏ_modules = {};
             return ret;
         }
         function make_name(name) {
-            var name;
             name = name.toString();
             if (options.ascii_only) {
                 name = to_ascii(name, true);
@@ -9665,7 +9671,7 @@ var ՐՏ_modules = {};
         }
         requireSemicolonChars = makePredicate("( [ + * / - , .");
         function print_(str_) {
-            var str_, ch, target_line, prev, a, n;
+            var ch, target_line, prev, a, n;
             str_ = String(str_);
             ch = str_.charAt(0);
             if (might_need_semicolon) {
@@ -9729,7 +9735,7 @@ var ՐՏ_modules = {};
             }
         } : noop;
         with_indent = options.beautify ? function(col, cont) {
-            var col, save_indentation, ret;
+            var save_indentation, ret;
             if (col === true) {
                 col = next_indent();
             }
@@ -9757,11 +9763,11 @@ var ՐՏ_modules = {};
             return indentation + options.indent_level;
         }
         function spaced() {
-            var ՐՏitr65, ՐՏidx65, ՐՏupk9;
+            var ՐՏitr66, ՐՏidx66, ՐՏupk9;
             var i, x;
-            ՐՏitr65 = ՐՏ_Iterable(enumerate(arguments));
-            for (ՐՏidx65 = 0; ՐՏidx65 < ՐՏitr65.length; ՐՏidx65++) {
-                ՐՏupk9 = ՐՏitr65[ՐՏidx65];
+            ՐՏitr66 = ՐՏ_Iterable(enumerate(arguments));
+            for (ՐՏidx66 = 0; ՐՏidx66 < ՐՏitr66.length; ՐՏidx66++) {
+                ՐՏupk9 = ՐՏitr66[ՐՏidx66];
                 i = ՐՏupk9[0];
                 x = ՐՏupk9[1];
                 if (i > 0) {
@@ -9813,11 +9819,11 @@ var ՐՏ_modules = {};
                         output.print(key);
                         output.colon();
                         output.with_block(function() {
-                            var ՐՏitr66, ՐՏidx66;
+                            var ՐՏitr67, ՐՏidx67;
                             var attr;
-                            ՐՏitr66 = ՐՏ_Iterable([ "enumerable", "writable" ]);
-                            for (ՐՏidx66 = 0; ՐՏidx66 < ՐՏitr66.length; ՐՏidx66++) {
-                                attr = ՐՏitr66[ՐՏidx66];
+                            ՐՏitr67 = ՐՏ_Iterable([ "enumerable", "writable" ]);
+                            for (ՐՏidx67 = 0; ՐՏidx67 < ՐՏitr67.length; ՐՏidx67++) {
+                                attr = ՐՏitr67[ՐՏidx67];
                                 output.indent();
                                 output.print(attr);
                                 output.colon();
@@ -10030,7 +10036,7 @@ var ՐՏ_modules = {};
             add_mapping: add_mapping,
             assign: assign_var,
             print_baselib: function(key) {
-                var ՐՏitr67, ՐՏidx67;
+                var ՐՏitr68, ՐՏidx68;
                 var baselibAst, hash, data, item, key_, value;
                 if (!options.omit_baselib) {
                     if (!Object.keys(baselibCache).length) {
@@ -10041,9 +10047,9 @@ var ՐՏ_modules = {};
                         });
                         hash = baselibAst.body[baselibAst.body.length-1];
                         data = hash.body.properties;
-                        ՐՏitr67 = ՐՏ_Iterable(data);
-                        for (ՐՏidx67 = 0; ՐՏidx67 < ՐՏitr67.length; ՐՏidx67++) {
-                            item = ՐՏitr67[ՐՏidx67];
+                        ՐՏitr68 = ՐՏ_Iterable(data);
+                        for (ՐՏidx68 = 0; ՐՏidx68 < ՐՏitr68.length; ՐՏidx68++) {
+                            item = ՐՏitr68[ՐՏidx68];
                             key_ = item.key.value;
                             value = item.value.name ? [ item.value ] : item.value.body;
                             baselibCache[key_] = splatBaselib(key_, value);
@@ -10120,14 +10126,14 @@ var ՐՏ_modules = {};
                             output.assign(assign);
                         }
                         output.with_parens(function() {
-                            var ՐՏitr68, ՐՏidx68;
+                            var ՐՏitr69, ՐՏidx69;
                             var arg;
                             output.assign(tmp);
                             baseFn();
                             output.comma();
-                            ՐՏitr68 = ՐՏ_Iterable(args);
-                            for (ՐՏidx68 = 0; ՐՏidx68 < ՐՏitr68.length; ՐՏidx68++) {
-                                arg = ՐՏitr68[ՐՏidx68];
+                            ՐՏitr69 = ՐՏ_Iterable(args);
+                            for (ՐՏidx69 = 0; ՐՏidx69 < ՐՏitr69.length; ՐՏidx69++) {
+                                arg = ՐՏitr69[ՐՏidx69];
                                 if (!(ՐՏ_in(arg, [ null, void 0 ]))) {
                                     arg.call(output, tmp);
                                     output.comma();
@@ -10174,7 +10180,7 @@ var ՐՏ_modules = {};
             return s.get();
         };
         ast.Node.prototype.add_comments = function(output) {
-            var ՐՏitr69, ՐՏidx69;
+            var ՐՏitr70, ՐՏidx70;
             var c, self, start, comments;
             c = output.option("comments");
             self = this;
@@ -10196,9 +10202,9 @@ var ՐՏ_modules = {};
                             return c(self, comment);
                         });
                     }
-                    ՐՏitr69 = ՐՏ_Iterable(comments);
-                    for (ՐՏidx69 = 0; ՐՏidx69 < ՐՏitr69.length; ՐՏidx69++) {
-                        c = ՐՏitr69[ՐՏidx69];
+                    ՐՏitr70 = ՐՏ_Iterable(comments);
+                    for (ՐՏidx70 = 0; ՐՏidx70 < ՐՏitr70.length; ՐՏidx70++) {
+                        c = ՐՏitr70[ՐՏidx70];
                         if (c.type === "comment:line") {
                             output.print("//" + c.value + "\n");
                             output.indent();
@@ -10365,17 +10371,16 @@ var ՐՏ_modules = {};
             }
         }
         function write_imports(module_, output) {
-            var ՐՏitr70, ՐՏidx70, ՐՏitr71, ՐՏidx71, ՐՏitr72, ՐՏidx72, ՐՏitr73, ՐՏidx73, ՐՏitr74, ՐՏidx74;
-            var imports, import_id, nonlocalvars, module_, name;
+            var ՐՏitr71, ՐՏidx71, ՐՏitr72, ՐՏidx72, ՐՏitr73, ՐՏidx73, ՐՏitr74, ՐՏidx74, ՐՏitr75, ՐՏidx75;
+            var imports, import_id, nonlocalvars, name;
             imports = [];
-            ՐՏitr70 = ՐՏ_Iterable(Object.keys(module_.imports));
-            for (ՐՏidx70 = 0; ՐՏidx70 < ՐՏitr70.length; ՐՏidx70++) {
-                import_id = ՐՏitr70[ՐՏidx70];
+            ՐՏitr71 = ՐՏ_Iterable(Object.keys(module_.imports));
+            for (ՐՏidx71 = 0; ՐՏidx71 < ՐՏitr71.length; ՐՏidx71++) {
+                import_id = ՐՏitr71[ՐՏidx71];
                 imports.push(module_.imports[import_id]);
             }
             imports.sort(function(a, b) {
                 var ՐՏupk10;
-                var a, b;
                 ՐՏupk10 = [ a.import_order, b.import_order ];
                 a = ՐՏupk10[0];
                 b = ՐՏupk10[1];
@@ -10387,12 +10392,12 @@ var ՐՏ_modules = {};
                 output.newline();
             }
             nonlocalvars = {};
-            ՐՏitr71 = ՐՏ_Iterable(imports);
-            for (ՐՏidx71 = 0; ՐՏidx71 < ՐՏitr71.length; ՐՏidx71++) {
-                module_ = ՐՏitr71[ՐՏidx71];
-                ՐՏitr72 = ՐՏ_Iterable(module_.nonlocalvars);
-                for (ՐՏidx72 = 0; ՐՏidx72 < ՐՏitr72.length; ՐՏidx72++) {
-                    name = ՐՏitr72[ՐՏidx72];
+            ՐՏitr72 = ՐՏ_Iterable(imports);
+            for (ՐՏidx72 = 0; ՐՏidx72 < ՐՏitr72.length; ՐՏidx72++) {
+                module_ = ՐՏitr72[ՐՏidx72];
+                ՐՏitr73 = ՐՏ_Iterable(module_.nonlocalvars);
+                for (ՐՏidx73 = 0; ՐՏidx73 < ՐՏitr73.length; ՐՏidx73++) {
+                    name = ՐՏitr73[ՐՏidx73];
                     nonlocalvars[name] = true;
                 }
             }
@@ -10402,9 +10407,9 @@ var ՐՏ_modules = {};
                 output.print("var " + nonlocalvars);
                 output.end_statement();
             }
-            ՐՏitr73 = ՐՏ_Iterable(imports);
-            for (ՐՏidx73 = 0; ՐՏidx73 < ՐՏitr73.length; ՐՏidx73++) {
-                module_ = ՐՏitr73[ՐՏidx73];
+            ՐՏitr74 = ՐՏ_Iterable(imports);
+            for (ՐՏidx74 = 0; ՐՏidx74 < ՐՏitr74.length; ՐՏidx74++) {
+                module_ = ՐՏitr74[ՐՏidx74];
                 if (module_.module_id !== "__main__") {
                     output.indent();
                     output.assign('ՐՏ_modules["' + module_.module_id + '"]');
@@ -10412,9 +10417,9 @@ var ՐՏ_modules = {};
                     output.end_statement();
                 }
             }
-            ՐՏitr74 = ՐՏ_Iterable(imports);
-            for (ՐՏidx74 = 0; ՐՏidx74 < ՐՏitr74.length; ՐՏidx74++) {
-                module_ = ՐՏitr74[ՐՏidx74];
+            ՐՏitr75 = ՐՏ_Iterable(imports);
+            for (ՐՏidx75 = 0; ՐՏidx75 < ՐՏitr75.length; ՐՏidx75++) {
+                module_ = ՐՏitr75[ՐՏidx75];
                 if (module_.module_id !== "__main__") {
                     print_module(module_, output);
                 }
@@ -10515,21 +10520,21 @@ var ՐՏ_modules = {};
             }
         }
         function declare_exports(module_id, exports, submodules, output) {
-            var ՐՏitr75, ՐՏidx75, ՐՏitr76, ՐՏidx76;
+            var ՐՏitr76, ՐՏidx76, ՐՏitr77, ՐՏidx77;
             var seen, symbol, sub_module_id, key;
             seen = {};
-            ՐՏitr75 = ՐՏ_Iterable(exports);
-            for (ՐՏidx75 = 0; ՐՏidx75 < ՐՏitr75.length; ՐՏidx75++) {
-                symbol = ՐՏitr75[ՐՏidx75];
+            ՐՏitr76 = ՐՏ_Iterable(exports);
+            for (ՐՏidx76 = 0; ՐՏidx76 < ՐՏitr76.length; ՐՏidx76++) {
+                symbol = ՐՏitr76[ՐՏidx76];
                 output.newline();
                 output.indent();
                 output.print('ՐՏ_modules["' + module_id + '"]["' + symbol.name + '"] = ' + symbol.name);
                 seen[symbol.name] = true;
                 output.end_statement();
             }
-            ՐՏitr76 = ՐՏ_Iterable(submodules);
-            for (ՐՏidx76 = 0; ՐՏidx76 < ՐՏitr76.length; ՐՏidx76++) {
-                sub_module_id = ՐՏitr76[ՐՏidx76];
+            ՐՏitr77 = ՐՏ_Iterable(submodules);
+            for (ՐՏidx77 = 0; ՐՏidx77 < ՐՏitr77.length; ՐՏidx77++) {
+                sub_module_id = ՐՏitr77[ՐՏidx77];
                 if (!seen.hasOwnProperty(module_id)) {
                     key = sub_module_id.split(".")[sub_module_id.split(".").length-1];
                     output.newline();
@@ -10640,7 +10645,7 @@ var ՐՏ_modules = {};
             }
         });
         DEFPRINT(ast.Imports, function(container, output) {
-            var ՐՏitr77, ՐՏidx77, ՐՏitr78, ՐՏidx78;
+            var ՐՏitr78, ՐՏidx78, ՐՏitr79, ՐՏidx79;
             var self, argname, alias, bound_name;
             function add_aname(aname, key, from_import) {
                 output.assign("var " + aname);
@@ -10651,14 +10656,14 @@ var ՐՏ_modules = {};
                 output.end_statement();
                 output.indent();
             }
-            ՐՏitr77 = ՐՏ_Iterable(container.imports);
-            for (ՐՏidx77 = 0; ՐՏidx77 < ՐՏitr77.length; ՐՏidx77++) {
-                self = ՐՏitr77[ՐՏidx77];
+            ՐՏitr78 = ՐՏ_Iterable(container.imports);
+            for (ՐՏidx78 = 0; ՐՏidx78 < ՐՏitr78.length; ՐՏidx78++) {
+                self = ՐՏitr78[ՐՏidx78];
                 output.import(self.module.name);
                 if (self.argnames) {
-                    ՐՏitr78 = ՐՏ_Iterable(self.argnames);
-                    for (ՐՏidx78 = 0; ՐՏidx78 < ՐՏitr78.length; ՐՏidx78++) {
-                        argname = ՐՏitr78[ՐՏidx78];
+                    ՐՏitr79 = ՐՏ_Iterable(self.argnames);
+                    for (ՐՏidx79 = 0; ՐՏidx79 < ՐՏitr79.length; ՐՏidx79++) {
+                        argname = ՐՏitr79[ՐՏidx79];
                         alias = argname.alias ? argname.alias.name : argname.name;
                         add_aname(alias, self.key, argname.name);
                     }
@@ -11107,7 +11112,7 @@ var ՐՏ_modules = {};
             function addDecorators() {
                 if (self.decorators && self.decorators.length) {
                     return function(obj) {
-                        var ՐՏitr79, ՐՏidx79;
+                        var ՐՏitr80, ՐՏidx80;
                         var output, stmt, funcName;
                         output = this;
                         output.assign(obj);
@@ -11115,9 +11120,9 @@ var ՐՏ_modules = {};
                             output.print(obj);
                         });
                         if (output.option("es6")) {
-                            ՐՏitr79 = ՐՏ_Iterable(self.body);
-                            for (ՐՏidx79 = 0; ՐՏidx79 < ՐՏitr79.length; ՐՏidx79++) {
-                                stmt = ՐՏitr79[ՐՏidx79];
+                            ՐՏitr80 = ՐՏ_Iterable(self.body);
+                            for (ՐՏidx80 = 0; ՐՏidx80 < ՐՏitr80.length; ՐՏidx80++) {
+                                stmt = ՐՏitr80[ՐՏidx80];
                                 if (stmt instanceof ast.Lambda && stmt.decorators && stmt.decorators.length) {
                                     funcName = obj + ".prototype." + stmt.name.name;
                                     output.comma();
@@ -11194,7 +11199,6 @@ var ՐՏ_modules = {};
                                 output.space();
                                 output.with_parens(function() {
                                     stmt.argnames.forEach(function(arg, i) {
-                                        var i;
                                         if (ՐՏ_in(name, self.static)) {
                                             ++i;
                                         }
@@ -11238,7 +11242,6 @@ var ՐՏ_modules = {};
                             output.print(name);
                             output.with_parens(function() {
                                 stmt.argnames.forEach(function(arg, i) {
-                                    var i;
                                     if (ՐՏ_in(name, self.static)) {
                                         ++i;
                                     }
@@ -11758,12 +11761,12 @@ var ՐՏ_modules = {};
             } else if (has_kwargs && (self instanceof ast.New || self.expression && self.expression.expression)) {
                 output.print(".call");
                 output.with_parens(function() {
-                    var ՐՏitr80, ՐՏidx80;
+                    var ՐՏitr81, ՐՏidx81;
                     var arg;
                     obj.print(output);
-                    ՐՏitr80 = ՐՏ_Iterable(self.args);
-                    for (ՐՏidx80 = 0; ՐՏidx80 < ՐՏitr80.length; ՐՏidx80++) {
-                        arg = ՐՏitr80[ՐՏidx80];
+                    ՐՏitr81 = ՐՏ_Iterable(self.args);
+                    for (ՐՏidx81 = 0; ՐՏidx81 < ՐՏitr81.length; ՐՏidx81++) {
+                        arg = ՐՏitr81[ՐՏidx81];
                         output.comma();
                         arg.print(output);
                     }
@@ -12069,12 +12072,12 @@ var ՐՏ_modules = {};
             });
         });
         DEFPRINT(ast.Range, function(self, output) {
-            var ՐՏitr81, ՐՏidx81;
+            var ՐՏitr82, ՐՏidx82;
             var indexes, element, start, end, step;
             indexes = [];
-            ՐՏitr81 = ՐՏ_Iterable([ self.left, self.right ]);
-            for (ՐՏidx81 = 0; ՐՏidx81 < ՐՏitr81.length; ՐՏidx81++) {
-                element = ՐՏitr81[ՐՏidx81];
+            ՐՏitr82 = ՐՏ_Iterable([ self.left, self.right ]);
+            for (ՐՏidx82 = 0; ՐՏidx82 < ՐՏitr82.length; ՐՏidx82++) {
+                element = ՐՏitr82[ՐՏidx82];
                 if (element instanceof ast.UnaryPrefix && element.operator === "-" && element.expression instanceof ast.Number) {
                     indexes.push(parseFloat("-" + element.expression.value));
                 } else if (element instanceof ast.Number) {
@@ -12091,11 +12094,11 @@ var ՐՏ_modules = {};
                     end += step / 1e6;
                 }
                 output.with_square(function() {
-                    var ՐՏitr82, ՐՏidx82;
+                    var ՐՏitr83, ՐՏidx83;
                     var i;
-                    ՐՏitr82 = ՐՏ_Iterable(range(start, end, step));
-                    for (ՐՏidx82 = 0; ՐՏidx82 < ՐՏitr82.length; ՐՏidx82++) {
-                        i = ՐՏitr82[ՐՏidx82];
+                    ՐՏitr83 = ՐՏ_Iterable(range(start, end, step));
+                    for (ՐՏidx83 = 0; ՐՏidx83 < ՐՏitr83.length; ՐՏidx83++) {
+                        i = ՐՏitr83[ՐՏidx83];
                         if (i !== start) {
                             output.comma();
                         }
@@ -12343,7 +12346,7 @@ if (!exports) {
     rapydscript = exports = {};
 }
 exports.parse_baselib = exports.parseBaselib = function(srcPath, beautify) {
-    var ՐՏitr83, ՐՏidx83;
+    var ՐՏitr84, ՐՏidx84;
     var fs, baselibPath, baselibAst, hash, data, baselibList, item, key, value;
     try {
         fs = require("fs");
@@ -12364,9 +12367,9 @@ exports.parse_baselib = exports.parseBaselib = function(srcPath, beautify) {
     hash = baselibAst.body[baselibAst.body.length-1];
     data = hash.body.properties;
     baselibList = {};
-    ՐՏitr83 = ՐՏ_Iterable(data);
-    for (ՐՏidx83 = 0; ՐՏidx83 < ՐՏitr83.length; ՐՏidx83++) {
-        item = ՐՏitr83[ՐՏidx83];
+    ՐՏitr84 = ՐՏ_Iterable(data);
+    for (ՐՏidx84 = 0; ՐՏidx84 < ՐՏitr84.length; ՐՏidx84++) {
+        item = ՐՏitr84[ՐՏidx84];
         key = item.key.value;
         value = item.value.name ? [ item.value ] : item.value.body;
         baselibList[key] = splatBaselib(key, value);
@@ -12452,8 +12455,8 @@ exports.compile = compile = function(code, options) {
     return stream.toString();
 };
 exports.minify = function(files, options) {
-    var ՐՏitr84, ՐՏidx84;
-    var options, files, file, code;
+    var ՐՏitr85, ՐՏidx85;
+    var file, code;
     options = utils.defaults(options, {
         fromString: false,
         warnings: false
@@ -12461,9 +12464,9 @@ exports.minify = function(files, options) {
     if (typeof files === "string") {
         files = [ files ];
     }
-    ՐՏitr84 = ՐՏ_Iterable(files);
-    for (ՐՏidx84 = 0; ՐՏidx84 < ՐՏitr84.length; ՐՏidx84++) {
-        file = ՐՏitr84[ՐՏidx84];
+    ՐՏitr85 = ՐՏ_Iterable(files);
+    for (ՐՏidx85 = 0; ՐՏidx85 < ՐՏitr85.length; ՐՏidx85++) {
+        file = ՐՏitr85[ՐՏidx85];
         options.filename = options.fromString ? "?" : file;
         code = options.fromString ? file : require("fs").readFileSync(file, "utf8");
         retrun;
@@ -13243,9 +13246,8 @@ module.exports = {
 };
 
 },{}],27:[function(require,module,exports){
-var ՐՏupk5, ՐՏ_2, ՐՏ_3, ՐՏ_4;
 function ՐՏ_bind(fn, thisArg) {
-    var fn, ret;
+    var ret;
     if (fn.orig) {
         fn = fn.orig;
     }
@@ -13259,7 +13261,6 @@ function ՐՏ_bind(fn, thisArg) {
     return ret;
 }
 function ՐՏ_rebindAll(thisArg, rebind) {
-    var rebind;
     if (rebind === void 0) {
         rebind = true;
     }
@@ -13298,7 +13299,342 @@ function ՐՏ_print() {
     }
 }
 function range(start, stop, step) {
-    var stop, start, step, length, idx, range;
+    var length, idx, range;
+    if (arguments.length <= 1) {
+        stop = start || 0;
+        start = 0;
+    }
+    step = arguments[2] || 1;
+    length = Math.max(Math.ceil((stop - start) / step), 0);
+    idx = 0;
+    range = new Array(length);
+    while (idx < length) {
+        range[idx++] = start;
+        start += step;
+    }
+    return range;
+}
+function ՐՏ_type(obj) {
+    return obj && obj.constructor && obj.constructor.name ? obj.constructor.name : Object.prototype.toString.call(obj).slice(8, -1);
+}
+function ՐՏ_eq(a, b) {
+    var ՐՏitr8, ՐՏidx8;
+    var i;
+    if (a === b) {
+        return true;
+    }
+    if (Array.isArray(a) && Array.isArray(b) || a instanceof Object && b instanceof Object) {
+        if (a.constructor !== b.constructor || a.length !== b.length) {
+            return false;
+        }
+        if (Array.isArray(a)) {
+            for (i = 0; i < a.length; i++) {
+                if (!ՐՏ_eq(a[i], b[i])) {
+                    return false;
+                }
+            }
+        } else {
+            if (Object.keys(a).length !== Object.keys(b).length) {
+                return false;
+            }
+            ՐՏitr8 = ՐՏ_Iterable(a);
+            for (ՐՏidx8 = 0; ՐՏidx8 < ՐՏitr8.length; ՐՏidx8++) {
+                i = ՐՏitr8[ՐՏidx8];
+                if (!ՐՏ_eq(a[i], b[i])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    return false;
+}
+var IndexError = (ՐՏ_2 = function IndexError() {
+    IndexError.prototype.__init__.apply(this, arguments);
+}, ՐՏ_extends(ՐՏ_2, Error), Object.defineProperties(ՐՏ_2.prototype, {
+    __init__: {
+        enumerable: true, 
+        writable: true, 
+        value: function __init__(message){
+            var self = this;
+            ՐՏ_rebindAll(this, true);
+            self.name = "IndexError";
+            self.message = message;
+        }
+    }
+}), ՐՏ_2);
+var TypeError = (ՐՏ_3 = function TypeError() {
+    TypeError.prototype.__init__.apply(this, arguments);
+}, ՐՏ_extends(ՐՏ_3, Error), Object.defineProperties(ՐՏ_3.prototype, {
+    __init__: {
+        enumerable: true, 
+        writable: true, 
+        value: function __init__(message){
+            var self = this;
+            ՐՏ_rebindAll(this, true);
+            self.name = "TypeError";
+            self.message = message;
+        }
+    }
+}), ՐՏ_3);
+var ValueError = (ՐՏ_4 = function ValueError() {
+    ValueError.prototype.__init__.apply(this, arguments);
+}, ՐՏ_extends(ՐՏ_4, Error), Object.defineProperties(ՐՏ_4.prototype, {
+    __init__: {
+        enumerable: true, 
+        writable: true, 
+        value: function __init__(message){
+            var self = this;
+            ՐՏ_rebindAll(this, true);
+            self.name = "ValueError";
+            self.message = message;
+        }
+    }
+}), ՐՏ_4);
+var ՐՏ_modules = {};
+ՐՏ_modules["stdlib"] = {};
+ՐՏ_modules["compat"] = {};
+
+(function(){
+    var __name__ = "stdlib";
+    var str;
+    str = JSON.stringify;
+    String.prototype.find = String.prototype.indexOf;
+    String.prototype.strip = String.prototype.trim;
+    String.prototype.lstrip = String.prototype.trimLeft;
+    String.prototype.rstrip = String.prototype.trimRight;
+    String.prototype.join = function(iterable) {
+        return iterable.join(this);
+    };
+    String.prototype.zfill = function(size) {
+        var s;
+        s = this;
+        while (s.length < size) {
+            s = "0" + s;
+        }
+        return s;
+    };
+    function list(iterable) {
+        var ՐՏitr1, ՐՏidx1;
+        iterable = iterable === void 0 ? [] : iterable;
+        var result, i;
+        result = [];
+        ՐՏitr1 = ՐՏ_Iterable(iterable);
+        for (ՐՏidx1 = 0; ՐՏidx1 < ՐՏitr1.length; ՐՏidx1++) {
+            i = ՐՏitr1[ՐՏidx1];
+            result.append(i);
+        }
+        return result;
+    }
+    Array.prototype.append = Array.prototype.push;
+    Array.prototype.find = Array.prototype.indexOf;
+    Array.prototype.index = function(index) {
+        var ՐՏ_1;
+        var val;
+        val = this.find(index);
+        if ((val === (ՐՏ_1 = -1) || typeof val === "object" && ՐՏ_eq(val, ՐՏ_1))) {
+            throw new ValueError(str(index) + " is not in list");
+        }
+        return val;
+    };
+    Array.prototype.insert = function(index, item) {
+        this.splice(index, 0, item);
+    };
+    Array.prototype.pop = function(index) {
+        index = index === void 0 ? this.length - 1 : index;
+        return this.splice(index, 1)[0];
+    };
+    Array.prototype.extend = function(array2) {
+        this.push.apply(this, array2);
+    };
+    Array.prototype.remove = function(item) {
+        var index;
+        index = this.find(item);
+        this.splice(index, 1);
+    };
+    Array.prototype.copy = function() {
+        return this.slice(0);
+    };
+    function dict(iterable) {
+        var ՐՏitr2, ՐՏidx2;
+        var result, key;
+        result = {};
+        ՐՏitr2 = ՐՏ_Iterable(iterable);
+        for (ՐՏidx2 = 0; ՐՏidx2 < ՐՏitr2.length; ՐՏidx2++) {
+            key = ՐՏitr2[ՐՏidx2];
+            result[key] = iterable[key];
+        }
+        return result;
+    }
+    if (ՐՏ_type(Object.getOwnPropertyNames) !== "function") {
+        dict.keys = function(hash) {
+            var keys;
+            keys = [];
+            
+        for (var x in hash) {
+            if (hash.hasOwnProperty(x)) {
+                keys.push(x);
+            }
+        }
+        ;
+            return keys;
+        };
+    } else {
+        dict.keys = function(hash) {
+            return Object.getOwnPropertyNames(hash);
+        };
+    }
+    dict.values = function(hash) {
+        var ՐՏitr3, ՐՏidx3;
+        var vals, key;
+        vals = [];
+        ՐՏitr3 = ՐՏ_Iterable(dict.keys(hash));
+        for (ՐՏidx3 = 0; ՐՏidx3 < ՐՏitr3.length; ՐՏidx3++) {
+            key = ՐՏitr3[ՐՏidx3];
+            vals.append(hash[key]);
+        }
+        return vals;
+    };
+    dict.items = function(hash) {
+        var ՐՏitr4, ՐՏidx4;
+        var items, key;
+        items = [];
+        ՐՏitr4 = ՐՏ_Iterable(dict.keys(hash));
+        for (ՐՏidx4 = 0; ՐՏidx4 < ՐՏitr4.length; ՐՏidx4++) {
+            key = ՐՏitr4[ՐՏidx4];
+            items.append([key, hash[key]]);
+        }
+        return items;
+    };
+    dict.copy = dict;
+    dict.clear = function(hash) {
+        var ՐՏitr5, ՐՏidx5;
+        var key;
+        ՐՏitr5 = ՐՏ_Iterable(dict.keys(hash));
+        for (ՐՏidx5 = 0; ՐՏidx5 < ՐՏitr5.length; ՐՏidx5++) {
+            key = ՐՏitr5[ՐՏidx5];
+            delete hash[key];
+        }
+    };
+    ՐՏ_modules["stdlib"]["str"] = str;
+
+    ՐՏ_modules["stdlib"]["list"] = list;
+
+    ՐՏ_modules["stdlib"]["dict"] = dict;
+})();
+
+(function(){
+    var __name__ = "compat";
+    var stdlib = ՐՏ_modules["stdlib"];
+    
+    if (!window.transpiler) {
+        
+        Vibrant = require ("node-vibrant")
+        require ("rapydscript")
+        common = require ("./common.py")
+        ;
+        window.transpiler = "RapydScript";
+    }
+    function _new(cls, arg) {
+        return new cls(arg);
+    }
+    function _print() {
+        var args = [].slice.call(arguments, 0);
+        var sep, end;
+        sep = " ";
+        end = "\n";
+        function printAsync() {
+            var element, arg, addition, previous;
+            element = document.getElementById("__terminal__");
+            if (element) {
+                addition = sep.join((function() {
+                    var ՐՏidx6, ՐՏitr6 = ՐՏ_Iterable(args), ՐՏres = [], arg;
+                    for (ՐՏidx6 = 0; ՐՏidx6 < ՐՏitr6.length; ՐՏidx6++) {
+                        arg = ՐՏitr6[ՐՏidx6];
+                        ՐՏres.push(arg);
+                    }
+                    return ՐՏres;
+                })()) + end;
+                previous = element.innerHTML;
+                element.innerHTML = previous + addition.replace("\n", "<br>");
+                element.scrollTop = element.scrollHeight;
+            } else {
+                console.log(sep.join((function() {
+                    var ՐՏidx7, ՐՏitr7 = ՐՏ_Iterable(args), ՐՏres = [], arg;
+                    for (ՐՏidx7 = 0; ՐՏidx7 < ՐՏitr7.length; ՐՏidx7++) {
+                        arg = ՐՏitr7[ՐՏidx7];
+                        ՐՏres.push(str(arg));
+                    }
+                    return ՐՏres;
+                })()));
+            }
+        }
+        setTimeout(printAsync, 5);
+    }
+    ՐՏ_modules["compat"]["_new"] = _new;
+
+    ՐՏ_modules["compat"]["_print"] = _print;
+})();
+
+var __name__ = "__main__";
+var ՐՏ_print = ՐՏ_modules["compat"]._print;
+
+ՐՏ_print(">> Hello from <b>Python</b>!");
+ՐՏ_print(window.transpiler + " running under " + navigator.userAgent);
+ՐՏ_print(navigator.platform + " " + navigator.language);
+ՐՏ_print("<div id='__header__'><a href='index.html'>rapydscript</a> - " + "<a href='index_transcrypt.html'>transcrypt</a></div>");var ՐՏ_2, ՐՏ_3, ՐՏ_4;
+
+},{"./common.py":27,"node-vibrant":2,"rapydscript":24}],28:[function(require,module,exports){
+var ՐՏupk5, ՐՏ_2, ՐՏ_3, ՐՏ_6;
+function ՐՏ_bind(fn, thisArg) {
+    var ret;
+    if (fn.orig) {
+        fn = fn.orig;
+    }
+    if (thisArg === false) {
+        return fn;
+    }
+    ret = function() {
+        return fn.apply(thisArg, arguments);
+    };
+    ret.orig = fn;
+    return ret;
+}
+function ՐՏ_rebindAll(thisArg, rebind) {
+    if (rebind === void 0) {
+        rebind = true;
+    }
+    for (var p in thisArg) {
+        if (thisArg[p] && thisArg[p].orig) {
+            if (rebind) {
+                thisArg[p] = ՐՏ_bind(thisArg[p], thisArg);
+            } else {
+                thisArg[p] = thisArg[p].orig;
+            }
+        }
+    }
+}
+function ՐՏ_extends(child, parent) {
+    child.prototype = Object.create(parent.prototype);
+    child.prototype.__base__ = parent;
+    child.prototype.constructor = child;
+}
+function ՐՏ_Iterable(iterable) {
+    var tmp;
+    if (iterable.constructor === [].constructor || iterable.constructor === "".constructor || (tmp = Array.prototype.slice.call(iterable)).length) {
+        return tmp || iterable;
+    }
+    return Object.keys(iterable);
+}
+function len(obj) {
+    var tmp;
+    if (obj.constructor === [].constructor || obj.constructor === "".constructor || (tmp = Array.prototype.slice.call(obj)).length) {
+        return (tmp || obj).length;
+    }
+    return Object.keys(obj).length;
+}
+function range(start, stop, step) {
+    var length, idx, range;
     if (arguments.length <= 1) {
         stop = start || 0;
         start = 0;
@@ -13348,9 +13684,9 @@ function ՐՏ_eq(a, b) {
     }
     return false;
 }
-var IndexError = (ՐՏ_5 = function IndexError() {
+var IndexError = (ՐՏ_7 = function IndexError() {
     IndexError.prototype.__init__.apply(this, arguments);
-}, ՐՏ_extends(ՐՏ_5, Error), Object.defineProperties(ՐՏ_5.prototype, {
+}, ՐՏ_extends(ՐՏ_7, Error), Object.defineProperties(ՐՏ_7.prototype, {
     __init__: {
         enumerable: true, 
         writable: true, 
@@ -13361,10 +13697,10 @@ var IndexError = (ՐՏ_5 = function IndexError() {
             self.message = message;
         }
     }
-}), ՐՏ_5);
-var TypeError = (ՐՏ_6 = function TypeError() {
+}), ՐՏ_7);
+var TypeError = (ՐՏ_8 = function TypeError() {
     TypeError.prototype.__init__.apply(this, arguments);
-}, ՐՏ_extends(ՐՏ_6, Error), Object.defineProperties(ՐՏ_6.prototype, {
+}, ՐՏ_extends(ՐՏ_8, Error), Object.defineProperties(ՐՏ_8.prototype, {
     __init__: {
         enumerable: true, 
         writable: true, 
@@ -13375,10 +13711,10 @@ var TypeError = (ՐՏ_6 = function TypeError() {
             self.message = message;
         }
     }
-}), ՐՏ_6);
-var ValueError = (ՐՏ_7 = function ValueError() {
+}), ՐՏ_8);
+var ValueError = (ՐՏ_9 = function ValueError() {
     ValueError.prototype.__init__.apply(this, arguments);
-}, ՐՏ_extends(ՐՏ_7, Error), Object.defineProperties(ՐՏ_7.prototype, {
+}, ՐՏ_extends(ՐՏ_9, Error), Object.defineProperties(ՐՏ_9.prototype, {
     __init__: {
         enumerable: true, 
         writable: true, 
@@ -13389,7 +13725,7 @@ var ValueError = (ՐՏ_7 = function ValueError() {
             self.message = message;
         }
     }
-}), ՐՏ_7);
+}), ՐՏ_9);
 var ՐՏ_modules = {};
 ՐՏ_modules["random"] = {};
 ՐՏ_modules["stdlib"] = {};
@@ -13415,7 +13751,7 @@ var ՐՏ_modules = {};
     function seed(x) {
         var ՐՏupk2;
         x = x === void 0 ? new Date().getTime() : x;
-        var x, i, j;
+        var i, j;
         if (typeof x === "number") {
             x = x.toString();
         } else if (typeof x !== "string") {
@@ -13638,11 +13974,14 @@ var ՐՏ_modules = {};
     var __name__ = "compat";
     var stdlib = ՐՏ_modules["stdlib"];
     
-    _print("Hello from RapydScript");
-    
-    Vibrant = require ("node-vibrant")
-    require ("rapydscript")
-    ;
+    if (!window.transpiler) {
+        
+        Vibrant = require ("node-vibrant")
+        require ("rapydscript")
+        common = require ("./common.py")
+        ;
+        window.transpiler = "RapydScript";
+    }
     function _new(cls, arg) {
         return new cls(arg);
     }
@@ -13688,19 +14027,15 @@ var __name__ = "__main__";
 var width, height, colors;
 var random = ՐՏ_modules["random"];
 
-var _new = ՐՏ_modules["compat"]._new;
-
 var ՐՏ_print = ՐՏ_modules["compat"]._print;
 
 var stdlib = ՐՏ_modules["compat"].stdlib;
 
-ՐՏ_print("<h1>Educa.Juegos</h1>");
-ՐՏ_print("<h2>Aprendemos jugando</h1>");
-ՐՏupk5 = [ 400, 100 ];
+var _new = ՐՏ_modules["compat"]._new;
+
+ՐՏupk5 = [ 800, 300 ];
 width = ՐՏupk5[0];
 height = ՐՏupk5[1];
-ՐՏ_print("<a href='index_transcrypt.html'>transcrypt</a>");
-ՐՏ_print("<a href='index.html'>rapydscript</a>");
 var Bola = (ՐՏ_2 = function Bola() {
     this.recolor = ՐՏ_bind(this.recolor, this);
     this.destroy = ՐՏ_bind(this.destroy, this);
@@ -13794,9 +14129,8 @@ var Director = (ՐՏ_3 = function Director() {
         writable: true, 
         value: function setup(){
             var self = this;
-            self.recolor();
             self.game.state = self.play;
-            if (self.tick !== false) {
+            if (self.tick === false) {
                 self.tick = window.setInterval(self.make_bola, 250);
             }
         }
@@ -13807,7 +14141,9 @@ var Director = (ՐՏ_3 = function Director() {
         value: function recolor(){
             var ՐՏitr9, ՐՏidx9;
             var self = this;
-            var actor;
+            var styles, actor;
+            styles = document.styleSheets[document.styleSheets.length - 1];
+            styles.insertRule("#__terminal__ { color: " + colors.vibe_light + " }", 0);
             ՐՏitr9 = ՐՏ_Iterable(self.actors);
             for (ՐՏidx9 = 0; ՐՏidx9 < ՐՏitr9.length; ՐՏidx9++) {
                 actor = ՐՏitr9[ՐՏidx9];
@@ -13829,8 +14165,13 @@ var Director = (ՐՏ_3 = function Director() {
         enumerable: true, 
         writable: true, 
         value: function play(){
+            var ՐՏ_4, ՐՏ_5;
             var self = this;
             var index, actor;
+            if (((ՐՏ_4 = self.bgcolor) !== (ՐՏ_5 = colors.vibe_dark) && (typeof ՐՏ_4 !== "object" || !ՐՏ_eq(ՐՏ_4, ՐՏ_5)))) {
+                self.bgcolor = colors.vibe_dark;
+                self.recolor();
+            }
             for (index = 0; index < len(self.actors); index++) {
                 actor = self.actors[index];
                 if (actor.to_delete === false) {
@@ -13846,7 +14187,10 @@ var Director = (ՐՏ_3 = function Director() {
         writable: true, 
         value: function pause(){
             var self = this;
-            window.clearInterval(self.tick);
+            if (self.tick) {
+                window.clearInterval(self.tick);
+                self.tick = false;
+            }
             self.game.pause();
         }
     },
@@ -13855,7 +14199,9 @@ var Director = (ՐՏ_3 = function Director() {
         writable: true, 
         value: function resume(){
             var self = this;
-            self.tick = window.setInterval(self.make_bola, 250);
+            if (!self.tick) {
+                self.tick = window.setInterval(self.make_bola, 250);
+            }
             self.game.resume();
         }
     },
@@ -13864,35 +14210,21 @@ var Director = (ՐՏ_3 = function Director() {
         writable: true, 
         value: function rescale(){
             var self = this;
-            self.game.scaleToWindow(colors.mute);
+            self.game.scaleToWindow(self.bgcolor);
         }
     }
 }), ՐՏ_3);
-function setup_styles() {
-    var styles;
-    styles = document.styleSheets[document.styleSheets.length - 1];
-    styles.insertRule("h1, h2 { color: " + colors.vibe_light + " }", 0);
-    styles.insertRule("h1, h2 { text-align: center; }", 0);
-    styles.insertRule("h1, h2 { font-family: 'Indie Flower'; }", 0);
-    styles.insertRule("#__terminal__ { color: " + colors.vibe_light + " }", 0);
-    styles.insertRule("#__terminal__ { font-family: 'Bitter'; }", 0);
-    styles.insertRule("#__prompt__ { font-family: 'Bitter'; position:absolute; bottom: 0; right: 0}", 0);
-    if (window.educajuego) {
-        window.educajuego.recolor();
-    }
-}
-var Palette = (ՐՏ_4 = function Palette() {
+var Palette = (ՐՏ_6 = function Palette() {
     this.parse = ՐՏ_bind(this.parse, this);
     Palette.prototype.__init__.apply(this, arguments);
-}, Object.defineProperties(ՐՏ_4.prototype, {
+}, Object.defineProperties(ՐՏ_6.prototype, {
     __init__: {
         enumerable: true, 
         writable: true, 
-        value: function __init__(asset, callback){
+        value: function __init__(asset){
             var self = this;
             ՐՏ_rebindAll(this, true);
             var v;
-            self.callback = callback;
             v = _new(Vibrant, asset);
             if (v) {
                 v.getPalette(self.parse);
@@ -13919,19 +14251,15 @@ var Palette = (ՐՏ_4 = function Palette() {
                 self.mute = palette.Muted.getHex();
                 self.mute_light = palette.LightMuted.getHex();
                 self.mute_dark = palette.DarkMuted.getHex();
-                if (self.callback) {
-                    self.callback();
-                }
             }
         }
     }
-}), ՐՏ_4);
+}), ՐՏ_6);
 function main() {
     var educajuego;
     if (window.educajuego) {
         return;
     }
-    setup_styles();
     educajuego = new Director();
     educajuego.game.start();
     window.onblur = educajuego.pause;
@@ -13939,7 +14267,7 @@ function main() {
     window.onresize = educajuego.rescale;
     window.educajuego = educajuego;
 }
-colors = new Palette("assets/hud.png", setup_styles);
-main();var ՐՏ_5, ՐՏ_6, ՐՏ_7;
+colors = new Palette("docs/images/monk_transcribing_large.png");
+main();var ՐՏ_7, ՐՏ_8, ՐՏ_9;
 
-},{"node-vibrant":2,"rapydscript":24}]},{},[27]);
+},{"./common.py":27,"node-vibrant":2,"rapydscript":24}]},{},[28]);
