@@ -4,9 +4,9 @@ Python Browser Compatibility Layer
 
 Quick development environment for writing Python scripts for the browser.
 
-This project template takes advantage of more than one development environment in order to test them out and offer the developer "more than one way to do it".
+This project template takes advantage of more than one development environment in order to test them out and offer the developer "more than one way to do it". It is intended to test the limits of the approach and as a testbed for python web development.
 
-It is considered as a basis into browser based collaborative educational development environments.
+This repository is considered a basis into browser based collaborative educational development environments.
 
 ## RapydScript © Alexander Tsepkov
 
@@ -23,26 +23,31 @@ It is considered as a basis into browser based collaborative educational develop
 * Website: http://transcrypt.org
 
 
+Put your code into ./src/main.py
+================================
+
+Check the code structure, see that it is Python that compiled into Javascript has access to the browser DOM and the entire Javascript world!
+
 How to run
 ==========
 
-First install dependencies:
+First install dependencies.
 
 ```
 npm install
 pip install -r requirements.txt
 ```
 
-While the Python dependencies are optional, version 3.5 or superior is required.
+While the Python dependencies are optional, version 3.5 or superior is required. You may need to create a virtual environment.
 
 
-Then you can then build:
+Then you can then compile your python code:
 
 ```
 npm run build
 ```
 
-Or use the live autoreloader:
+Or use the live auto-reloader:
 
 ```
 npm run live
@@ -53,7 +58,10 @@ It will hopefully monitor the main.py file and its imports and trigger a browser
 Motivation
 ==========
 
-There appear to be several options when attempting to use Python in the browser, and the tradeoffs are not really clear at first. This is an attempt at testing them side by side, in order to determine what those tradeoffs are, what are the best practices and the tools better suited for each task.
+There appear to be several options when attempting to use Python in the browser, and the trade-offs are not really clear at first. This is an attempt at testing them side by side, in order to determine what those trade-offs are, what are the best practices and the tools better suited for each task.
+
+Python is a wonderful language for learning, for modelling, and for constructing powerful applications. It features a clear, expressive syntax. We really wanted to use it and share it! Let it be so in the browser too!
+
 
 Our use case
 ============
