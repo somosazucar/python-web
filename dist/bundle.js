@@ -13533,7 +13533,7 @@ var ՐՏ_modules = {};
         require ("rapydscript")
         common = require ("./common.py")
         ;
-        window.transpiler = "RapydScript";
+        window.transpiler = "Rapydscript";
     }
     function _new(cls, arg) {
         return new cls(arg);
@@ -13579,10 +13579,13 @@ var ՐՏ_modules = {};
 var __name__ = "__main__";
 var ՐՏ_print = ՐՏ_modules["compat"]._print;
 
-ՐՏ_print(">> Hello from <b>Python</b>!");
-ՐՏ_print(window.transpiler + " running under " + navigator.userAgent);
-ՐՏ_print(navigator.platform + " " + navigator.language);
-ՐՏ_print("<div id='__header__'><a href='index.html'>rapydscript</a> - " + "<a href='index_transcrypt.html'>transcrypt</a></div>");var ՐՏ_2, ՐՏ_3, ՐՏ_4;
+function start_ide() {
+    ՐՏ_print(">>> Hello from <b>Python</b>!");
+    ՐՏ_print("<b>" + window.transpiler + "</b> running under " + navigator.userAgent);
+    ՐՏ_print(navigator.platform + " " + navigator.language);
+    ՐՏ_print("<div id='__header__'>" + "<img src='" + window.colors.asset + "'><br>" + "<b>Compilers:</b>" + "<ul><li><a href='index.html'>rapydscript</a></li>" + "<li><a href='index_transcrypt.html'>transcrypt</a></li>" + "</ul>" + "</div>");
+}
+window.start_ide = start_ide;var ՐՏ_2, ՐՏ_3, ՐՏ_4;
 
 },{"./common.py":27,"node-vibrant":2,"rapydscript":24}],28:[function(require,module,exports){
 var ՐՏupk5, ՐՏ_2, ՐՏ_3, ՐՏ_6;
@@ -13980,7 +13983,7 @@ var ՐՏ_modules = {};
         require ("rapydscript")
         common = require ("./common.py")
         ;
-        window.transpiler = "RapydScript";
+        window.transpiler = "Rapydscript";
     }
     function _new(cls, arg) {
         return new cls(arg);
@@ -14024,7 +14027,7 @@ var ՐՏ_modules = {};
 })();
 
 var __name__ = "__main__";
-var width, height, colors;
+var width, height;
 var random = ՐՏ_modules["random"];
 
 var ՐՏ_print = ՐՏ_modules["compat"]._print;
@@ -14210,7 +14213,7 @@ var Director = (ՐՏ_3 = function Director() {
         writable: true, 
         value: function rescale(){
             var self = this;
-            self.game.scaleToWindow(self.bgcolor);
+            self.scale = self.game.scaleToWindow(self.bgcolor);
         }
     }
 }), ՐՏ_3);
@@ -14225,9 +14228,12 @@ var Palette = (ՐՏ_6 = function Palette() {
             var self = this;
             ՐՏ_rebindAll(this, true);
             var v;
-            v = _new(Vibrant, asset);
-            if (v) {
-                v.getPalette(self.parse);
+            if (asset) {
+                v = _new(Vibrant, asset);
+                if (v) {
+                    v.getPalette(self.parse);
+                    self.asset = asset;
+                }
             }
             self.vibe = "#335533";
             self.vibe_light = "#656565";
@@ -14256,18 +14262,26 @@ var Palette = (ՐՏ_6 = function Palette() {
     }
 }), ՐՏ_6);
 function main() {
-    var educajuego;
+    var colors, educajuego;
     if (window.educajuego) {
         return;
+    }
+    if (window.transpiler === "Transcrypt") {
+        colors = new Palette("docs/images/monk_transcribing_logo.png");
+    } else if (window.transpiler === "Rapydscript") {
+        colors = new Palette("docs/images/rs_logo_tiny.png");
+    } else {
+        colors = new Palette();
     }
     educajuego = new Director();
     educajuego.game.start();
     window.onblur = educajuego.pause;
     window.onfocus = educajuego.resume;
     window.onresize = educajuego.rescale;
+    window.colors = colors;
     window.educajuego = educajuego;
+    window.start_ide();
 }
-colors = new Palette("docs/images/monk_transcribing_large.png");
 main();var ՐՏ_7, ՐՏ_8, ՐՏ_9;
 
 },{"./common.py":27,"node-vibrant":2,"rapydscript":24}]},{},[28]);
