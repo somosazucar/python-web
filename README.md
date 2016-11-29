@@ -1,3 +1,4 @@
+![](docs/images/uroboros_head.png)
 
 Python Browser Compatibility Layer
 ==================================
@@ -23,8 +24,8 @@ This repository is considered a basis into browser based collaborative education
 * Website: http://transcrypt.org
 
 
-Put your code into ./src/main.py
-================================
+Put your code into `./src/main.py`
+==================================
 
 Check the code structure, see that it is Python that compiled into Javascript has access to the browser DOM and the entire Javascript world!
 
@@ -86,3 +87,10 @@ Open questions
 * To look at other compilers: Batavia, Javascripthon.
 
 * Which Python transpiler shall we use?
+
+Licenses
+========
+
+Each project has its own licenses. Please respect them. You may use either BSD-2 or Apache 2.0 at your own choice. When releasing your project, consider a license with copyleft such as the AGPL-3.0.
+
+**Happy Learning!**
