@@ -105,14 +105,17 @@
 				self.game.resume ();
 			});},
 			get rescale () {return __get__ (this, function (self) {
-				self.game.scaleToWindow (self.bgcolor);
+				self.scale = self.game.scaleToWindow (self.bgcolor);
 			});}
 		});
 		var Palette = __class__ ('Palette', [object], {
 			get __init__ () {return __get__ (this, function (self, asset) {
-				var v = _new (Vibrant, asset);
-				if (v) {
-					v.getPalette (self.parse);
+				if (asset) {
+					var v = _new (Vibrant, asset);
+					if (v) {
+						v.getPalette (self.parse);
+						self.asset = asset;
+					}
 				}
 				self.vibe = '#335533';
 				self.vibe_light = '#656565';
@@ -140,14 +143,26 @@
 			if (window.educajuego) {
 				return ;
 			}
+			if (window.transpiler == 'Transcrypt') {
+				var colors = Palette ('docs/images/monk_transcribing_logo.png');
+			}
+			else {
+				if (window.transpiler == 'Rapydscript') {
+					var colors = Palette ('docs/images/rs_logo_tiny.png');
+				}
+				else {
+					var colors = Palette ();
+				}
+			}
 			var educajuego = Director ();
 			educajuego.game.start ();
 			window.onblur = educajuego.pause;
 			window.onfocus = educajuego.resume;
 			window.onresize = educajuego.rescale;
+			window.colors = colors;
 			window.educajuego = educajuego;
+			window.start_ide ();
 		};
-		var colors = Palette ('docs/images/monk_transcribing_large.png');
 		main ();
 		__pragma__ ('<use>' +
 			'compat' +
@@ -158,7 +173,6 @@
 			__all__.Director = Director;
 			__all__.Palette = Palette;
 			__all__._new = _new;
-			__all__.colors = colors;
 			__all__.height = height;
 			__all__.main = main;
 			__all__.stdlib = stdlib;

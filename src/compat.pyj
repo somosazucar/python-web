@@ -18,7 +18,7 @@ if not window.transpiler:
         require ("rapydscript")
         common = require ("./common.py")
         """)
-    window.transpiler = "RapydScript"
+    window.transpiler = "Rapydscript"
 
 
 def _new(cls, arg):

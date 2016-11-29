@@ -1,5 +1,5 @@
 "use strict";
-// Transcrypt'ed from Python, 2016-11-19 03:11:22
+// Transcrypt'ed from Python, 2016-11-27 09:41:43
 function main () {
 	var __symbols__ = ['__esv5__'];
 	var __all__ = {};
@@ -1932,14 +1932,18 @@ function main () {
 				__inited__: false,
 				__init__: function (__all__) {
 					var ՐՏ_print = __init__ (__world__.compat)._print;
-					print ('>> Hello from <b>Python</b>!');
-					print ((window.transpiler + ' running under ') + navigator.userAgent);
-					print ((navigator.platform + ' ') + navigator.language);
-					print ("<div id='__header__'><a href='index.html'>rapydscript</a> - " + "<a href='index_transcrypt.html'>transcrypt</a></div>");
+					var start_ide = function () {
+						print ('>>> Hello from <b>Python</b>!');
+						print ((('<b>' + window.transpiler) + '</b> running under ') + navigator.userAgent);
+						print ((navigator.platform + ' ') + navigator.language);
+						print (((((((("<div id='__header__'>" + "<img src='") + window.colors.asset) + "'><br>") + '<b>Compilers:</b>') + "<ul><li><a href='index.html'>rapydscript</a></li>") + "<li><a href='index_transcrypt.html'>transcrypt</a></li>") + '</ul>') + '</div>');
+					};
+					window.start_ide = start_ide;
 					__pragma__ ('<use>' +
 						'compat' +
 					'</use>')
 					__pragma__ ('<all>')
+						__all__.start_ide = start_ide;
 						__all__.ՐՏ_print = ՐՏ_print;
 					__pragma__ ('</all>')
 				}
@@ -2159,14 +2163,17 @@ function main () {
 				self.game.resume ();
 			});},
 			get rescale () {return __get__ (this, function (self) {
-				self.game.scaleToWindow (self.bgcolor);
+				self.scale = self.game.scaleToWindow (self.bgcolor);
 			});}
 		});
 		var Palette = __class__ ('Palette', [object], {
 			get __init__ () {return __get__ (this, function (self, asset) {
-				var v = _new (Vibrant, asset);
-				if (v) {
-					v.getPalette (self.parse);
+				if (asset) {
+					var v = _new (Vibrant, asset);
+					if (v) {
+						v.getPalette (self.parse);
+						self.asset = asset;
+					}
 				}
 				self.vibe = '#335533';
 				self.vibe_light = '#656565';
@@ -2194,14 +2201,26 @@ function main () {
 			if (window.educajuego) {
 				return ;
 			}
+			if (window.transpiler == 'Transcrypt') {
+				var colors = Palette ('docs/images/monk_transcribing_logo.png');
+			}
+			else {
+				if (window.transpiler == 'Rapydscript') {
+					var colors = Palette ('docs/images/rs_logo_tiny.png');
+				}
+				else {
+					var colors = Palette ();
+				}
+			}
 			var educajuego = Director ();
 			educajuego.game.start ();
 			window.onblur = educajuego.pause;
 			window.onfocus = educajuego.resume;
 			window.onresize = educajuego.rescale;
+			window.colors = colors;
 			window.educajuego = educajuego;
+			window.start_ide ();
 		};
-		var colors = Palette ('docs/images/monk_transcribing_large.png');
 		main ();
 		__pragma__ ('<use>' +
 			'compat' +
@@ -2212,7 +2231,6 @@ function main () {
 			__all__.Director = Director;
 			__all__.Palette = Palette;
 			__all__._new = _new;
-			__all__.colors = colors;
 			__all__.height = height;
 			__all__.main = main;
 			__all__.stdlib = stdlib;

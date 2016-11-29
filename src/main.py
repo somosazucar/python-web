@@ -97,7 +97,7 @@ class Director:
         self.game.resume()
 
     def rescale(self):
-        self.game.scaleToWindow(self.bgcolor)
+        self.scale = self.game.scaleToWindow(self.bgcolor)
 
 
 #
@@ -105,9 +105,11 @@ class Director:
 #
 class Palette:
     def __init__(self, asset):
-        v = _new(Vibrant, asset)
-        if v:
-            v.getPalette(self.parse)
+        if asset:
+            v = _new(Vibrant, asset)
+            if v:
+                v.getPalette(self.parse)
+                self.asset = asset
 
         self.vibe = "#335533"
         self.vibe_light = "#656565"
@@ -132,6 +134,13 @@ def main():
     if window.educajuego:
         return
 
+    if window.transpiler=='Transcrypt':
+        colors = Palette('docs/images/monk_transcribing_logo.png')
+    elif window.transpiler=='Rapydscript':
+        colors = Palette('docs/images/rs_logo_tiny.png')
+    else:
+        colors = Palette()
+
     educajuego = Director()
     educajuego.game.start()
 
@@ -139,8 +148,9 @@ def main():
     window.onfocus = educajuego.resume
     window.onresize = educajuego.rescale
 
+    window.colors = colors
     window.educajuego = educajuego
 
+    window.start_ide()
 
-colors = Palette('docs/images/monk_transcribing_large.png')
 main()
