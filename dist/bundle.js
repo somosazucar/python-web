@@ -13583,7 +13583,9 @@ function start_ide() {
     ՐՏ_print(">>> Hello from <b>Python</b>!");
     ՐՏ_print("<b>" + window.transpiler + "</b> running under " + navigator.userAgent);
     ՐՏ_print(navigator.platform + " " + navigator.language);
-    ՐՏ_print("<div id='__header__'>" + "<img src='" + window.colors.asset + "'><br>" + "<b>Compilers:</b>" + "<ul><li><a href='index.html'>rapydscript</a></li>" + "<li><a href='index_transcrypt.html'>transcrypt</a></li>" + "</ul>" + "</div>");
+    ՐՏ_print("<br><h1><a href='https://github.com/somosazucar/python-web'>" + "Python Browser Compatibility Layer</a></h1>");
+    ՐՏ_print("<br><img src='./docs/images/uroboros_head.png'>");
+    ՐՏ_print("<div id='__header__'>" + "<button style='padding: 10px; border-radius: 5px' " + "onclick='location.href=\"https://github.com/somosazucar/python-web/blob/master/src/main.py\"'>" + "⚙ View Source for this Example</button><br><br>" + "<iframe src='https://ghbtns.com/github-btn.html?user=somosazucar&repo=python-web&type=fork&count=true&size=large' frameborder='0' scrolling='0' width='128px' height='30px'></iframe><br>" + "<br><img src='" + window.colors.asset + "'><br>" + "<b>Compilers:</b>" + "<p><a href='index.html'>rapydscript</a></p>" + "<p><a href='index_transcrypt.html'>transcrypt</a></p>" + "</ul>" + "</div>");
 }
 window.start_ide = start_ide;var ՐՏ_2, ՐՏ_3, ՐՏ_4;
 
@@ -14122,6 +14124,7 @@ var Director = (ՐՏ_3 = function Director() {
             var self = this;
             ՐՏ_rebindAll(this, true);
             self.game = hexi(width, height, self.setup);
+            self.game.backgroundColor = "ffffff";
             self.game.fps = 25;
             self.tick = false;
             self.actors = [];
@@ -14147,12 +14150,12 @@ var Director = (ՐՏ_3 = function Director() {
             var styles, actor;
             styles = document.styleSheets[document.styleSheets.length - 1];
             styles.insertRule("#__terminal__ { color: " + colors.vibe_light + " }", 0);
+            self.game.backgroundColor = colors.mute_dark;
             ՐՏitr9 = ՐՏ_Iterable(self.actors);
             for (ՐՏidx9 = 0; ՐՏidx9 < ՐՏitr9.length; ՐՏidx9++) {
                 actor = ՐՏitr9[ՐՏidx9];
                 actor.recolor();
             }
-            self.game.backgroundColor = colors.mute_dark;
             self.rescale();
         }
     },
@@ -14171,8 +14174,8 @@ var Director = (ՐՏ_3 = function Director() {
             var ՐՏ_4, ՐՏ_5;
             var self = this;
             var index, actor;
-            if (((ՐՏ_4 = self.bgcolor) !== (ՐՏ_5 = colors.vibe_dark) && (typeof ՐՏ_4 !== "object" || !ՐՏ_eq(ՐՏ_4, ՐՏ_5)))) {
-                self.bgcolor = colors.vibe_dark;
+            if (((ՐՏ_4 = self.bgcolor) !== (ՐՏ_5 = colors.mute_dark) && (typeof ՐՏ_4 !== "object" || !ՐՏ_eq(ՐՏ_4, ՐՏ_5)))) {
+                self.bgcolor = colors.mute_dark;
                 self.recolor();
             }
             for (index = 0; index < len(self.actors); index++) {
@@ -14213,7 +14216,7 @@ var Director = (ՐՏ_3 = function Director() {
         writable: true, 
         value: function rescale(){
             var self = this;
-            self.scale = self.game.scaleToWindow(self.bgcolor);
+            self.scale = self.game.scaleToWindow(colors.vibe_dark);
         }
     }
 }), ՐՏ_3);

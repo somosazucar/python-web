@@ -1,5 +1,15 @@
 import random
+#                                                    |>
+#             #=====================================#
+#             |  Python Browser Compatibility Layer \
+#             \  Copyright 2016 © Sebastian Silva   |
+#             #====================================#
+#               |    <sebastian@fuentelibre.org>    \
+#               \ Choose your license: BSD2 Apache2 |
+#                +---------------------------------+
+#
 
+# Compatibility artifacts
 from compat import _print as ՐՏ_print
 from compat import stdlib
 from compat import _new
@@ -49,9 +59,14 @@ class Bola:
             self.director.game.move(self.sprite)
 
 
+#
+# Scene Director
+#
+
 class Director:
     def __init__(self):
         self.game = hexi(width, height, self.setup)
+        self.game.backgroundColor = "ffffff"
         self.game.fps = 25
         self.tick = False
 
@@ -66,17 +81,17 @@ class Director:
     def recolor(self):
         styles = document.styleSheets[document.styleSheets.length - 1]
         styles.insertRule("#__terminal__ { color: " + colors.vibe_light + " }", 0)
+        self.game.backgroundColor = colors.mute_dark
         for actor in self.actors:
             actor.recolor()
-        self.game.backgroundColor = colors.mute_dark
         self.rescale()
 
     def make_bola(self):
         self.actors.append(Bola(self))
 
     def play(self):
-        if self.bgcolor != colors.vibe_dark:
-            self.bgcolor = colors.vibe_dark
+        if self.bgcolor != colors.mute_dark:
+            self.bgcolor = colors.mute_dark
             self.recolor()
         for index in range(len(self.actors)):
             actor = self.actors[index]
@@ -97,7 +112,7 @@ class Director:
         self.game.resume()
 
     def rescale(self):
-        self.scale = self.game.scaleToWindow(self.bgcolor)
+        self.scale = self.game.scaleToWindow(colors.vibe_dark)
 
 
 #
@@ -151,6 +166,8 @@ def main():
     window.colors = colors
     window.educajuego = educajuego
 
+    # This is defined in common.py which is loaded
+    # from compat module differently for each compiler.
     window.start_ide()
 
 main()

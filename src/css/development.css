@@ -12,6 +12,7 @@ canvas {
     top: 0; 
     right: 0;
     padding: 5px;
+    text-align: right;
 }
 #__terminal__ {
     font-family: Courier; 

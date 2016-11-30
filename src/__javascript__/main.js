@@ -1,5 +1,5 @@
 "use strict";
-// Transcrypt'ed from Python, 2016-11-28 22:16:24
+// Transcrypt'ed from Python, 2016-11-30 14:15:11
 function main () {
 	var __symbols__ = ['__esv5__'];
 	var __all__ = {};
@@ -1936,7 +1936,9 @@ function main () {
 						print ('>>> Hello from <b>Python</b>!');
 						print ((('<b>' + window.transpiler) + '</b> running under ') + navigator.userAgent);
 						print ((navigator.platform + ' ') + navigator.language);
-						print (((((((("<div id='__header__'>" + "<img src='") + window.colors.asset) + "'><br>") + '<b>Compilers:</b>') + "<ul><li><a href='index.html'>rapydscript</a></li>") + "<li><a href='index_transcrypt.html'>transcrypt</a></li>") + '</ul>') + '</div>');
+						print ("<br><h1><a href='https://github.com/somosazucar/python-web'>" + 'Python Browser Compatibility Layer</a></h1>');
+						print ("<br><img src='./docs/images/uroboros_head.png'>");
+						print (((((((((((("<div id='__header__'>" + "<button style='padding: 10px; border-radius: 5px' ") + 'onclick=\'location.href="https://github.com/somosazucar/python-web/blob/master/src/main.py"\'>') + '⚙ View Source for this Example</button><br><br>') + "<iframe src='https://ghbtns.com/github-btn.html?user=somosazucar&repo=python-web&type=fork&count=true&size=large' frameborder='0' scrolling='0' width='128px' height='30px'></iframe><br>") + "<br><img src='") + window.colors.asset) + "'><br>") + '<b>Compilers:</b>') + "<p><a href='index.html'>rapydscript</a></p>") + "<p><a href='index_transcrypt.html'>transcrypt</a></p>") + '</ul>') + '</div>');
 					};
 					window.start_ide = start_ide;
 					__pragma__ ('<use>' +
@@ -2108,6 +2110,7 @@ function main () {
 		var Director = __class__ ('Director', [object], {
 			get __init__ () {return __get__ (this, function (self) {
 				self.game = hexi (width, height, self.setup);
+				self.game.backgroundColor = 'ffffff';
 				self.game.fps = 25;
 				self.tick = false;
 				self.actors = list ([]);
@@ -2121,20 +2124,20 @@ function main () {
 			get recolor () {return __get__ (this, function (self) {
 				var styles = document.styleSheets [document.styleSheets.length - 1];
 				styles.insertRule (('#__terminal__ { color: ' + colors.vibe_light) + ' }', 0);
+				self.game.backgroundColor = colors.mute_dark;
 				var __iterable0__ = self.actors;
 				for (var __index0__ = 0; __index0__ < __iterable0__.length; __index0__++) {
 					var actor = __iterable0__ [__index0__];
 					actor.recolor ();
 				}
-				self.game.backgroundColor = colors.mute_dark;
 				self.rescale ();
 			});},
 			get make_bola () {return __get__ (this, function (self) {
 				self.actors.append (Bola (self));
 			});},
 			get play () {return __get__ (this, function (self) {
-				if (self.bgcolor != colors.vibe_dark) {
-					self.bgcolor = colors.vibe_dark;
+				if (self.bgcolor != colors.mute_dark) {
+					self.bgcolor = colors.mute_dark;
 					self.recolor ();
 				}
 				for (var index = 0; index < len (self.actors); index++) {
@@ -2163,7 +2166,7 @@ function main () {
 				self.game.resume ();
 			});},
 			get rescale () {return __get__ (this, function (self) {
-				self.scale = self.game.scaleToWindow (self.bgcolor);
+				self.scale = self.game.scaleToWindow (colors.vibe_dark);
 			});}
 		});
 		var Palette = __class__ ('Palette', [object], {

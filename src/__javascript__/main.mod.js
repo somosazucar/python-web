@@ -50,6 +50,7 @@
 		var Director = __class__ ('Director', [object], {
 			get __init__ () {return __get__ (this, function (self) {
 				self.game = hexi (width, height, self.setup);
+				self.game.backgroundColor = 'ffffff';
 				self.game.fps = 25;
 				self.tick = false;
 				self.actors = list ([]);
@@ -63,20 +64,20 @@
 			get recolor () {return __get__ (this, function (self) {
 				var styles = document.styleSheets [document.styleSheets.length - 1];
 				styles.insertRule (('#__terminal__ { color: ' + colors.vibe_light) + ' }', 0);
+				self.game.backgroundColor = colors.mute_dark;
 				var __iterable0__ = self.actors;
 				for (var __index0__ = 0; __index0__ < __iterable0__.length; __index0__++) {
 					var actor = __iterable0__ [__index0__];
 					actor.recolor ();
 				}
-				self.game.backgroundColor = colors.mute_dark;
 				self.rescale ();
 			});},
 			get make_bola () {return __get__ (this, function (self) {
 				self.actors.append (Bola (self));
 			});},
 			get play () {return __get__ (this, function (self) {
-				if (self.bgcolor != colors.vibe_dark) {
-					self.bgcolor = colors.vibe_dark;
+				if (self.bgcolor != colors.mute_dark) {
+					self.bgcolor = colors.mute_dark;
 					self.recolor ();
 				}
 				for (var index = 0; index < len (self.actors); index++) {
@@ -105,7 +106,7 @@
 				self.game.resume ();
 			});},
 			get rescale () {return __get__ (this, function (self) {
-				self.scale = self.game.scaleToWindow (self.bgcolor);
+				self.scale = self.game.scaleToWindow (colors.vibe_dark);
 			});}
 		});
 		var Palette = __class__ ('Palette', [object], {
