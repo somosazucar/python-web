@@ -5,6 +5,8 @@ Python Browser Compatibility Layer
 
 Quick development environment for writing Python scripts for the browser.
 
+Check out [the demo.](https://somosazucar.github.io/python-web/)
+
 This project template takes advantage of more than one development environment in order to test them out and offer the developer "more than one way to do it". It is intended to test the limits of the approach and as a testbed for python web development.
 
 This repository is considered a basis into browser based collaborative educational development environments.
