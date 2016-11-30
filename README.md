@@ -1,4 +1,4 @@
-![](docs/images/uroboros_head.png)
+![](docs/images/uroboros_bw.png)
 
 Python Browser Compatibility Layer
 ==================================
@@ -29,10 +29,12 @@ Put your code into `./src/main.py`
 
 Check the code structure, see that it is Python that compiled into Javascript has access to the browser DOM and the entire Javascript world!
 
+You will be interested in `./index.html`, and `./css/development.css` as well.
+
 How to run
 ==========
 
-First install dependencies.
+With install dependencies.
 
 ```
 npm install
@@ -56,6 +58,8 @@ npm run live
 
 It will hopefully monitor the main.py file and its imports and trigger a browser reload after an incremental rebuild.
 
+The idea is to obtain immadiate feedback each time you save your code. *Note: This is not supported with Transcrypt*.
+
 Motivation
 ==========
 
@@ -77,6 +81,11 @@ The ideal environment would allow to define classes (e.g. new Sprites and launch
 
 We intend to build up to this goal basing on what we currently have.
 
+Our inspiration are tools such as:
+ - http://gamingJS.com/ice
+ - https://www.youtube.com/watch?v=XPYKYkD_5A0
+ - http://shama.github.io/voxel-drone/
+
 Open questions
 ==============
 
@@ -91,6 +100,6 @@ Open questions
 Licenses
 ========
 
-Each project has its own licenses. Please respect them. You may use either BSD-2 or Apache 2.0 at your own choice. When releasing your project, consider a license with copyleft such as the AGPL-3.0.
+Each project has its own license. Please respect them. For the code in this repository not coming from other projects, you may use either BSD-2 or Apache 2.0 at your own choice. When releasing your project, consider a license with copyleft such as the AGPL-3.0.
 
 **Happy Learning!**
